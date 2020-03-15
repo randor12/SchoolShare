@@ -10,4 +10,7 @@ Make an application that allows for screen sharing, live communication, and file
 
 # REQUIREMENTS
 - Must have Node and npm installed on computer
-- Must have packages in setup.txt
+- Must have MySQL downloaded and set up
+- Run in terminal or Git Bash in the current directory, "chmod 777 setup.sh"
+- Run "./setup.sh" to auto install all packages needed to start developing 
+- Edit auth.json file to include local MySQL information
