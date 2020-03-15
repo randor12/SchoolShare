@@ -70,3 +70,7 @@ app.get('/about', function(req, res, next) {
 app.get('/contact', function (req, res, next) {
     res.sendFile(__dirname + '/public/contact.html');
 })
+
+app.get('/scripts/script.js', function (req, res, next) {
+    res.sendFile(__dirname + '/scripts/script.js');
+})
