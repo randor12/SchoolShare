@@ -12,7 +12,7 @@ const mysql = require('mysql')
 var con = mysql.createConnection({
     host: "localhost",
     user: "rynicholas", // can be user: "rynicholas" with passwd or "root" with passwd2
-    password: auth.passwd,
+    password: process.env.passwd || auth.passwd,
     database: "schoolshare_schema"
 });
 
