@@ -1,6 +1,6 @@
 // Initialize Express Application 
 const express = require('express')
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const app = express();
 const auth = require('./auth.json');
@@ -11,8 +11,8 @@ const mysql = require('mysql')
 // This is where the connection object is setup. Pay attention to the fields
 var con = mysql.createConnection({
     host: "localhost",
-    user: "root", // can also be user: "rynicholas" with passwd instead of passwd2
-    password: process.env.PASSWD || auth.passwd2,
+    user: "rynicholas", // can be user: "rynicholas" with passwd or "root" with passwd2
+    password: auth.passwd,
     database: "schoolshare_schema"
 });
 
@@ -25,6 +25,13 @@ con.connect(function (err) {
 //telling the ExpressJS app to use the bodyparser.
 //This has to ‘happen’ before other middleware.
 app.use(bodyParser.json())
+
+//start the server
+app.listen(port, function () {
+    console.log(`Example app listening on port ${port}!!`)
+})
+
+
 
 //Middleware that handles GET requests to ‘/’
 app.get('/', function (req, res, next) {
@@ -47,5 +54,5 @@ app.get('/', function (req, res, next) {
 })
 
 app.get('/styles/style.css', function (req, res, next) {
-    res.sendFile(__dirname + 'styles/style.css');
+    res.sendFile(__dirname + '/styles/style.css');
 })
