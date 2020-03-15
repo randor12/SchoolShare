@@ -15,7 +15,7 @@ var con = mysql.createConnection({
     // Create auth.json file with local username and password to connect to MySQL
     // Make the json have a section called "username": "YOUR_USERNAME"
     // and have a section called "passwd": "YOUR_PASSWORD"
-    host: "localhost",
+    host: process.env.server || "localhost",
     user: process.env.uName || auth.username,
     password: process.env.passwd || auth.passwd,
     database: "schoolshare_schema"
