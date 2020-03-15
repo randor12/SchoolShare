@@ -1,0 +1,25 @@
+{
+  "name": "schoolshare",
+  "version": "1.0.0",
+  "description": "School Share",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randor12/SchoolShare.git"
+  },
+  "author": "Ryan Nicholas (randor12)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randor12/SchoolShare/issues"
+  },
+  "homepage": "https://github.com/randor12/SchoolShare#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.4",
+    "mysql": "^2.18.1"
+  }
+}
