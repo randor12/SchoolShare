@@ -58,6 +58,15 @@ app.get('/', function (req, res, next) {
     */
 })
 
+// Send the CSS
 app.get('/styles/style.css', function (req, res, next) {
     res.sendFile(__dirname + '/styles/style.css');
+})
+
+app.get('/about', function(req, res, next) {
+    res.sendFile(__dirname + '/public/about.html');
+})
+
+app.get('/contact', function (req, res, next) {
+    res.sendFile(__dirname + '/public/contact.html');
 })
