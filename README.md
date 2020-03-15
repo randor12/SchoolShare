@@ -8,3 +8,6 @@ Make an application that allows for screen sharing, live communication, and file
 - Phone: (203) 400-9614
 - Email: rynicholas@vt.edu
 
+# REQUIREMENTS
+- Must have Node and npm installed on computer
+- Must have packages in setup.txt
