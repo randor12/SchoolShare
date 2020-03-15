@@ -6,4 +6,3 @@ npm install mysql
 npm install mongoose
 touch auth.json
 printf "{\n \"user\": \"user here\",\n\"pass\": \"pass here\"\n}" >> auth.json
-chmod 777 setup.sh
