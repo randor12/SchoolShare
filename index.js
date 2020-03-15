@@ -74,3 +74,26 @@ app.get('/contact', function (req, res, next) {
 app.get('/scripts/script.js', function (req, res, next) {
     res.sendFile(__dirname + '/scripts/script.js');
 })
+
+app.get('/styles/signIn.css', function (req, res, next) {
+    res.sendFile(__dirname + '/styles/signIn.css');
+})
+
+app.get('/login', function (req, res, next) {
+    res.sendFile(__dirname + '/public/signIn.html');
+})
+
+app.get('/scripts/login.js', function (req, res, next) {
+    res.sendFile(__dirname + '/scripts/login.js');
+})
+
+app.post('/user', function (req, res, next) {
+    console.log('Attempted login...');
+    console.log("Username: " + req.body.username);
+    res.sendStatus(200);
+})
+
+
+app.get('/signup', function (req, res, next) {
+    res.sendFile(__dirname + '/public/signUp.html');
+})
