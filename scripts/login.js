@@ -1,19 +1,20 @@
 /**
- * Login Back End
+ * Login POST Request
  */
-
  function verify() {
+     console.log("Verifying");
      // Verify user exists
      data = {
-         username: $("#first").val(),
-         password: $("#last").val()
+         username: $("#username").val(),
+         password: $("#password").val()
      }
-     
+     console.log("Username: " + data.username);
+
      $.ajax({
          type: "POST",
          dataType: "json",
          contentType: "application/json",
          data: JSON.stringify(data),
-         url: "/user"
-     })
+         url: "/login"
+     });
  }

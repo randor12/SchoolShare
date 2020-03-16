@@ -4,6 +4,8 @@ const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const app = express();
 const auth = require('./auth.json');
+var session = require('express-session');
+var path = require('path')
 
 // Communicate with the MySQL
 const mysql = require('mysql')
@@ -29,7 +31,13 @@ con.connect(function (err) {
 
 //telling the ExpressJS app to use the bodyparser.
 //This has to ‘happen’ before other middleware.
-app.use(bodyParser.json())
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //start the server
 app.listen(port, function () {
@@ -87,12 +95,40 @@ app.get('/scripts/login.js', function (req, res, next) {
     res.sendFile(__dirname + '/scripts/login.js');
 })
 
-app.post('/user', function (req, res, next) {
+// Check database for username and password
+app.post('/auth', function (request, response) {
+    console.log("Authenticating...");
+    var email = request.body.email;
+    var password = request.body.password;
+    console.log("Email: " + email);
+    var req = 'SELECT * FROM accounts WHERE email = "' + email + '" AND password = "' + password + '";';
+    if (email && password) {
+        con.query(req, function (error, results, fields) {
+            if (results.length > 0) {
+                request.session.loggedin = true;
+                request.session.username = email;
+                console.log("Successfully Logged In!");
+                response.redirect('/');
+            } else {
+                response.send('Incorrect Email and/or Password!');
+            }
+            response.end();
+        });
+    } else {
+        response.send('Please enter Email and Password!');
+        response.end();
+    }
+});
+
+/*
+app.post('/login', function (req, res, next) {
+    var user = document.getElementById('username').nodeValue();
+    console.log("Username: " + user);
     console.log('Attempted login...');
     console.log("Username: " + req.body.username);
-    res.sendStatus(200);
-})
-
+    res.redirect('/');
+});
+*/
 
 app.get('/signup', function (req, res, next) {
     res.sendFile(__dirname + '/public/signUp.html');
