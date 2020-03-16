@@ -1,6 +1,5 @@
+CREATE DATABASE IF NOT EXISTS schoolshare_schema DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 use schoolshare_schema;
-CREATE DATABASE IF NOT EXISTS `nodelogin` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `nodelogin`;
 
 CREATE TABLE IF NOT EXISTS `accounts` (
   `id` int(11) NOT NULL,
