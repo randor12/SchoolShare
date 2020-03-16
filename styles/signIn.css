@@ -81,6 +81,14 @@ button[type=submit]:hover {
   margin-top: 6px;
 }
 
+.bottom-container .col {
+  float: left;
+  width: 33%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
 /* Clear floats after the columns */
 .row:after {
   content: "";

@@ -133,3 +133,7 @@ app.post('/login', function (req, res, next) {
 app.get('/signup', function (req, res, next) {
     res.sendFile(__dirname + '/public/signUp.html');
 })
+
+app.get('/forgotPass', function(req, res, next) {
+    res.sendFile(__dirname + '/public/forgotPass.html');
+})
