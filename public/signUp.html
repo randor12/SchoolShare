@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/signIn.css">
 </head>
 <body>
     <div class="navbar">
@@ -13,6 +13,37 @@
         <a href="/contact">Contact</a>
         <a href="/login">Sign In</a>
         <a href="/signup">Sign Up</a>
+    </div>
+    <div class="main">
+        <h2>Sign Up Page</h2>
+        <div class="container">
+            <form method="POST" action="signup">
+                <div class="row">
+                    <input type="text" id="email" name="email" placeholder="Email" required>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="bottom-container">
+            <div class="row">
+                <div class="col">
+                    <!--Sign Up Page-->
+                    <a href="/login" style="color:white" class="btn">Sign In</a>
+                </div>
+                <div class="col">
+                    <!--Forgot Password-->
+                    <a href="/forgotPass" style="color:white" class="btn">Forgot password?</a>
+                </div>
+                <div class="col">
+                    <!--Home Button-->
+                    <a href="/" style="color:white" class="btn">Cancel</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
