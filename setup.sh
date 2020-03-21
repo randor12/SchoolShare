@@ -5,5 +5,7 @@ npm install body-parser
 npm install mysql
 npm install mongoose
 npm install express-session
+npm install crypto
+npm install bcrypt
 touch auth.json
 printf "{\n \"username\": \"user here\",\n\"passwd\": \"pass here\"\n}" >> auth.json

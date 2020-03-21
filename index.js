@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const auth = require('./auth.json');
 var session = require('express-session');
-var path = require('path')
+var path = require('path');
+var crypto = require('bcrypt');
 
 // Communicate with the MySQL
 const mysql = require('mysql')
@@ -101,16 +102,25 @@ app.post('/auth', function (request, response) {
     var email = request.body.email;
     var password = request.body.password;
     console.log("Email: " + email);
-    var req = 'SELECT * FROM accounts WHERE email = "' + email + '" AND password = "' + password + '";';
+    //var req = 'SELECT * FROM accounts WHERE email = "' + email + '" AND password = "' + password + '";';
+    var req = 'SELECT * FROM accounts WHERE email = "' + email + '";';
     if (email && password) {
         con.query(req, function (error, results, fields) {
             if (results.length > 0) {
-                request.session.loggedin = true;
-                request.session.username = email;
-                console.log("Successfully Logged In!");
-                response.redirect('/');
+                var salt = fields[0].salt;
+                var hash = hashPasswd(password, salt);
+                if (fields[0].password == hash)
+                {
+                    request.session.loggedin = true;
+                    request.session.username = email;
+                    console.log("Successfully Logged In!");
+                    response.redirect('/');
+                }
+                else {
+                    response.send('Incorrect Password!')
+                }
             } else {
-                response.send('Incorrect Email and/or Password!');
+                response.send('Incorrect Email!');
             }
             response.end();
         });
@@ -119,6 +129,59 @@ app.post('/auth', function (request, response) {
         response.end();
     }
 });
+
+// Get salt for password
+function saltPass(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+function hashPasswd(passwd, salt) {
+    // Salt and hash password
+    var hash = crypto.hashSync(passwd, salt);
+    return hash;
+}
+
+function alreadySignedUp(email) {
+    var req = 'SELECT * FROM accounts WHERE email like "' + email + '";';
+    con.query(req, function (error, results, field) {
+        if (results.length > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+}
+
+// Sign up for the application
+app.post('/signup', function (req, res) {
+    console.log('Signing Up...');
+    var email = req.body.email;
+    var uName = req.body.username;
+    var passwd = req.body.password;
+    var salt = saltPass(8);
+    var hashPass = hashPasswd(passwd, salt);
+    if (!alreadySignedUp(email))
+    {
+        console.log("Email: " + email);
+        var req = 'INSERT INTO accounts (email, password, username, salt) VALUES ("' + email + '", "' + hashPass + '", "' + uName + '", "' + salt + '");';
+        con.query(req, function (error, results, field) {
+            if (error != null) {
+                console.log("Could not load into database");
+                response.redirect('');
+            }
+        })
+    }
+    else {
+        res.send('You are already signed up!');
+    }
+})
 
 /*
 app.post('/login', function (req, res, next) {
