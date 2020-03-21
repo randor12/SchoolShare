@@ -112,7 +112,7 @@ app.post('/auth', function (request, response) {
                 if (results[0].password == hash)
                 {
                     request.session.loggedin = true;
-                    request.session.username = email;
+                    request.session.username = results[0].username;
                     console.log("Successfully Logged In!");
                     response.redirect('/');
                 }
@@ -132,7 +132,7 @@ app.post('/auth', function (request, response) {
 
 // Get salt for password
 function saltPass(length) {
-    var salt = crypto.genSaltSync(10);
+    var salt = crypto.genSaltSync(length);
     /*
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -168,17 +168,16 @@ app.post('/signup', function (req, res) {
     var email = req.body.email;
     var uName = req.body.username;
     var passwd = req.body.password;
-    var salt = saltPass(8);
+    var salt = saltPass(15);
     var hashPass = hashPasswd(passwd, salt);
     if (!alreadySignedUp(email))
     {
         console.log("Email: " + email);
         var req = 'INSERT INTO accounts (email, password, username, salt) VALUES ("' + email + '", "' + hashPass + '", "' + uName + '", "' + salt + '");';
         con.query(req, function (error, results, field) {
-            if (error != null) {
-                console.log("Could not load into database");
-                response.redirect('');
-            }
+            if (error) throw error;
+            console.log("Result: ", results);
+            res.redirect('/');
         })
     }
     else {
