@@ -107,9 +107,9 @@ app.post('/auth', function (request, response) {
     if (email && password) {
         con.query(req, function (error, results, fields) {
             if (results.length > 0) {
-                var salt = fields[0].salt;
+                var salt = results[0].salt;
                 var hash = hashPasswd(password, salt);
-                if (fields[0].password == hash)
+                if (results[0].password == hash)
                 {
                     request.session.loggedin = true;
                     request.session.username = email;
