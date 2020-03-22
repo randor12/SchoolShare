@@ -7,7 +7,7 @@ const auth = require('./auth.json');
 var session = require('express-session');
 var path = require('path');
 var crypto = require('bcrypt');
-
+const loginFunc = require('./scripts/login');
 // Communicate with the MySQL
 const mysql = require('mysql')
 
@@ -43,12 +43,19 @@ app.use(bodyParser.json());
 //start the server
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!!`)
+    
 })
 
 
 
 //Middleware that handles GET requests to ‘/’
 app.get('/', function (req, res, next) {
+    
+    if (req.session.loggedin) {
+        console.log('Logged in');
+        console.log("Username: " + req.session.uName);
+        
+    }
     res.sendFile(__dirname + '/public/index.html');
     // Example MySQL command 
     /*
@@ -112,7 +119,7 @@ app.post('/auth', function (request, response) {
                 if (results[0].password == hash)
                 {
                     request.session.loggedin = true;
-                    request.session.username = results[0].username;
+                    request.session.uName = results[0].username;
                     console.log("Successfully Logged In!");
                     response.redirect('/');
                 }
@@ -183,6 +190,15 @@ app.post('/signup', function (req, res) {
     else {
         res.send('You are already signed up!');
     }
+})
+
+app.get('/logout', function (req, res, next) {
+    req.session.destroy(function(err) {
+        if (err)
+            return next(err);
+        else
+            res.redirect('/');
+    });
 })
 
 /*
