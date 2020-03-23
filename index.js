@@ -6,7 +6,7 @@ const app = express();
 const auth = require('./auth.json');
 var session = require('express-session');
 var path = require('path');
-var crypto = require('bcrypt');
+var crypto = require('bcryptjs');
 const loginFunc = require('./scripts/login');
 // Communicate with the MySQL
 const mysql = require('mysql')
