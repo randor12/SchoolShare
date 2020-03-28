@@ -20,3 +20,19 @@ function loggedIn() {
         '<a href="/contact">Contact</a>\n' +
         '<a href="/logout">Logout</a>\n';
 }
+
+
+function exists() {
+    console.log('Clicked?');
+    data = {
+        email: $("#email").val(),
+    }
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        url: "/list"
+    })
+}
