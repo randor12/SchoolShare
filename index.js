@@ -123,7 +123,7 @@ app.get('/scripts/login.js', function (req, res, next) {
 })
 
 // Check database for username and password
-app.post('/auth', function (request, response) {
+app.post('/login', function (request, response) {
     console.log("Authenticating...");
     var email = request.body.email;
     var password = request.body.password;
@@ -131,7 +131,9 @@ app.post('/auth', function (request, response) {
     //var req = 'SELECT * FROM accounts WHERE email = "' + email + '" AND password = "' + password + '";';
     var req = 'SELECT * FROM accounts WHERE email = "' + email + '";';
     if (email && password) {
+        
         con.query(req, function (error, results, fields) {
+            console.log("Results Length: " + results.length);
             if (results.length > 0) {
                 var salt = results[0].salt;
                 var hash = hashPasswd(password, salt);
@@ -143,13 +145,17 @@ app.post('/auth', function (request, response) {
                     response.redirect('/');
                 }
                 else {
-                    response.send('Incorrect Password!')
+                    response.send('<p>Incorrect Password!</p>\n<a href="/login">Redirect to login page</a>');
                 }
             } else {
-                response.send('Incorrect Email!');
+                console.log('Email does not exist');
+                response.send('<p>Incorrect Email!</p>\n<a href="/login">Redirect to login page</a>');
+                
             }
             response.end();
+        
         });
+        
     } else {
         response.send('Please enter Email and Password!');
         response.end();
@@ -176,17 +182,20 @@ function hashPasswd(passwd, salt) {
     return hash;
 }
 
-function alreadySignedUp(email) {
+var signedAlready = false;
+
+function alreadySignedUp(email, callback) {
     var req = 'SELECT * FROM accounts WHERE email like "' + email + '";';
+    console.log('Request: ' + req);
     con.query(req, function (error, results, field) {
-        if (results.length > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    })
+        
+        console.log('Length: ' + results.length);
+        signedAlready = (results.length > 0) ? true : false;
+        return signedAlready;
+    });
 }
+
+
 
 // Sign up for the application
 app.post('/signup', function (req, res) {
@@ -196,7 +205,9 @@ app.post('/signup', function (req, res) {
     var passwd = req.body.password;
     var salt = saltPass(15);
     var hashPass = hashPasswd(passwd, salt);
-    if (!alreadySignedUp(email))
+    var check = alreadySignedUp(email);
+    console.log('Check: ' + check);
+    if (!check)
     {
         console.log("Email: " + email);
         var req = 'INSERT INTO accounts (email, password, username, salt) VALUES ("' + email + '", "' + hashPass + '", "' + uName + '", "' + salt + '");';
@@ -207,7 +218,8 @@ app.post('/signup', function (req, res) {
         })
     }
     else {
-        res.send('You are already signed up!');
+        console.log('Signed Up Already');
+        res.send('<p>You are already signed up!</p>\n<a href="/signup">Redirect to sign up</a>');
     }
 })
 
