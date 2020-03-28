@@ -141,6 +141,8 @@ app.post('/login', function (request, response) {
                 {
                     request.session.loggedin = true;
                     request.session.uName = results[0].username;
+                    request.session.email = results[0].email;
+                    
                     console.log("Successfully Logged In!");
                     response.redirect('/');
                 }

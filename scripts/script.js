@@ -45,7 +45,9 @@ function getUser() {
         success:
             function (data) {
                 $.each(data, function (index, value) {
-                    console.log(value.email + " " + value.loggedIn);
+                    $('#users').html(""); // Reset data displayed 
+                    // ABOVE: <div class="users"> <!-- Writes info here --> </div>
+                    console.log(value.email + "; " + value.loggedIn + "; " + value.uName);
                 });
             }
     });
