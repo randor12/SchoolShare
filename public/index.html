@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feed</title>
+    <title>SchoolShare Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../styles/bootstrap.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-            <a class="navbar-brand" href="#">SchoolShare</a>
-            <a href="signIn.html" class="btn btn-success dropdown-menu-left" type="button" id="dropdown-menu" aria-haspopup="true" aria-expanded="false"> Login
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand text-primary font-weight-bold" href="index.html">SchoolShare</a>
+            <a href="feed.html" class="navbar-text p-2 mx-1 text-white">Feed</a>
+            <a href="about.html" class="navbar-text p-2 mx-1 text-white">About </a>
+            <a href="contact.html" class="navbar-text p-2 mx-1 text-white mr-auto"> Contact Us</a>
+            <a href="signIn.html" class="btn btn-align-middle btn-primary mr-1" type="button" id="login" aria-haspopup="true" aria-expanded="false"> Login
             </a>
-            
+            <a href="signUp.html" class="btn btn-align-middle bg-success ml-1" type="button" id="signup" aria-haspopup="true" aria-expanded="false">Sign Up</a>
         </nav>
     </header>    
+
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4"> Welcome to SchoolShare!</h1>
+                <p>SchoolShare is a website alternative to online lecture calls, completely contained within your browser!</p>
+            </div>
+        </div>
+    </main>
+
 </body>
 </html>
