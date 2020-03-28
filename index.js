@@ -142,7 +142,7 @@ app.post('/login', function (request, response) {
                     request.session.loggedin = true;
                     request.session.uName = results[0].username;
                     request.session.email = results[0].email;
-                    
+
                     console.log("Successfully Logged In!");
                     response.redirect('/');
                 }
@@ -284,6 +284,25 @@ app.get('/resetPass', function(req, res, next) {
         res.sendFile(__dirname + '/public/resetPass.html');
     else {
         res.redirect('/forgotPass');
+    }
+})
+
+app.get('/feed', function(req, res, next) {
+    if (req.session.loggedin) {
+        res.sendFile(__dirname + '/public/feed.html');
+    }
+    else {
+        res.redirect('/login');
+    }
+})
+
+app.get('/settings', function(req, res, next) {
+    if (req.session.loggedin) {
+        res.sendFile(__dirname + '/public/settings.html');
+
+    }
+    else {
+        res.redirect('/login');
     }
 })
 
