@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../scripts/script.js"></script>
+    <title>Reset Password</title>
     <link rel="stylesheet" href="../styles/signIn.css">
 </head>
 <body>
     <div class="navbar">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/logout">Logout</a>
-        <a href="/feed">Feed</a>
+        <a href="/login">Sign In</a>
+        <a href="/signup">Sign Up</a>
     </div>
     <div class="main">
-        <h2>Forgot Password</h2>
-        <body> Looks like you've forgotten your password, please enter your email below</body>
+        <h2>Reset Password</h2>
         <div class="container">
-            <form method="POST" action="forgotPass">
+            <form method="POST" action="resetPass">
                 <div class="row">
-                    <input type="text" id="email" name="email" placeholder="Email" onchange="exists();" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
                     <button type="submit">Reset Password</button>
                 </div>
             </form>
@@ -35,12 +29,17 @@
                     <a href="/login" style="color:white" class="btn">Sign In</a>
                 </div>
                 <div class="col">
+                    <!--Forgot Password-->
+                    <a href="/forgotPass" style="color:white" class="btn">Forgot password?</a>
+                </div>
+                <div class="col">
                     <!--Home Button-->
-                    <a href="index.html" style="color:white" class="btn">Cancel</a>
+                    <a href="/" style="color:white" class="btn">Cancel</a>
                 </div>
             </div>
         </div>
     
     </div>
+    
 </body>
 </html>

@@ -1,8 +1,10 @@
 # School Share
 Make an application that allows for screen sharing, live communication, and file uploading and downloading
 
-## Author
+## Author(s)
 - Ryan Nicholas, Computer Science Major at Virginia Tech
+- Matt Gonley, Computer Science Major at Virginia Tech
+- Marcus Tran, Computer Science Major at Virginia Tech
 
 ## Contact
 - Phone: (203) 400-9614

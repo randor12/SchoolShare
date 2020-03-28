@@ -268,14 +268,35 @@ app.get('/forgotPass', function(req, res, next) {
 
 app.post('/forgotPass', function(req, res, next) {
     console.log("Forgot Password");
-    if (alreadySignedUp(req.body.email)) {
+    if (exists.e) {
+        req.session.resetPass = req.body.email;
         res.redirect('/resetPass');
     }
     else {
-        res.send('Email not found');
+        res.send('<p>Email not found</p>\n<a href="/forgotPass">Redirect to forgot password</a>');
     }
 })
 
 app.get('/resetPass', function(req, res, next) {
-    res.sendFile(__dirname + '/public/resetPass.html');
+    if (req.session.resetPass != undefined)
+        res.sendFile(__dirname + '/public/resetPass.html');
+    else {
+        res.redirect('/forgotPass');
+    }
+})
+
+app.post('/resetPass', function(req, res, next) {
+    var salt = saltPass(15);
+    var hashPass = hashPasswd(req.body.password, salt);
+    var request = 'UPDATE accounts SET password = "' + hashPass + '", salt = "' + salt + 
+    '" WHERE email like "' + req.session.resetPass
+    + '";';
+    console.log("Reset Request: " + request);
+    con.query(request, function (err, res, field) {
+        if (err) throw err;
+        console.log("Updated Password for User");
+        
+    })
+    req.session.resetPass = undefined;
+    res.redirect('/login');
 })
