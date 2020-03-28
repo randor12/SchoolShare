@@ -182,20 +182,34 @@ function hashPasswd(passwd, salt) {
     return hash;
 }
 
-var signedAlready = false;
+var exists = {e: false};
 
-function alreadySignedUp(email, callback) {
-    var req = 'SELECT * FROM accounts WHERE email like "' + email + '";';
-    console.log('Request: ' + req);
-    con.query(req, function (error, results, field) {
-        
-        console.log('Length: ' + results.length);
-        signedAlready = (results.length > 0) ? true : false;
-        return signedAlready;
-    });
-}
+// function alreadySignedUp(email) {
+//     var req = 'SELECT * FROM accounts WHERE email like "' + email + '";';
+//     console.log('Request: ' + req);
+//     con.query(req, function (error, results, field) {
+//         console.log('Length: ' + results.length);
+//         signedAlready = (results.length > 0) ? true : false;
+//         return signedAlready;
+//     });
+// }
 
+app.get('/list', function (req, res, next) {
+    res.json(exists);
+})
 
+app.post('/list', function(req, rest, next) {
+    var request = 'SELECT * FROM accounts WHERE email like "' + req.body.email + '";';
+    con.query(request, function (err, res, field) {
+        console.log(results.length);
+        if (results.length > 0) {
+            exists.e = true;
+        }
+        else {
+            exists.e = false;
+        }
+    })
+})
 
 // Sign up for the application
 app.post('/signup', function (req, res) {
@@ -205,7 +219,8 @@ app.post('/signup', function (req, res) {
     var passwd = req.body.password;
     var salt = saltPass(15);
     var hashPass = hashPasswd(passwd, salt);
-    var check = alreadySignedUp(email);
+    var check = exists.e;
+    
     console.log('Check: ' + check);
     if (!check)
     {
