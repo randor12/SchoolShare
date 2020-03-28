@@ -297,6 +297,6 @@ app.post('/resetPass', function(req, res, next) {
         console.log("Updated Password for User");
         
     })
-    req.session.resetPass = undefined;
+    req.session.destroy();
     res.redirect('/login');
 })
