@@ -6,6 +6,7 @@
     <title>Settings</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/script.js"></script>
 </head>
 <body>
 <div class="navbar">
@@ -18,9 +19,14 @@
     </div>
     <div class="main">
         <h2>Settings</h2>
-        <p> Username: </p>
-        <p> Email: </p>
-        <a href="/forgotPass" style="color:white" class="btn">Reset password</a>
-       <!-- <p> Account set up with: </p> -->
+        <div class = "username">
+            <p> Username: <type="text" id="user" onload="getUsers().uName;" required>
+            </p>
+            <p> Email: <type="text" id="email" onload="getUsers().email;" required>
+            </p>
+        </div>
+        <a href="/forgotPass" style="color:white" class="btn">Reset Password</a>
+        <h2> If you have any issues, please contact us with the information from the <a href="/contact" style="color:white" class="btn">Contact</a>
+            page</h2>
 </body>
 </html>
