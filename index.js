@@ -321,3 +321,7 @@ app.post('/resetPass', function(req, res, next) {
     req.session.destroy();
     res.redirect('/login');
 })
+
+app.get('/styles/bootstrap.css', function (req, res, next) {
+    res.sendFile(__dirname + '/styles/bootstrap.css');
+})
