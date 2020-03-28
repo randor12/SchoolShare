@@ -200,9 +200,10 @@ app.get('/list', function (req, res, next) {
 
 app.post('/list', function(req, rest, next) {
     var request = 'SELECT * FROM accounts WHERE email like "' + req.body.email + '";';
+    console.log('Request: ' + request);
     con.query(request, function (err, res, field) {
-        console.log(results.length);
-        if (results.length > 0) {
+        console.log(res.length);
+        if (res.length > 0) {
             exists.e = true;
         }
         else {
