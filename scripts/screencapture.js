@@ -1,7 +1,9 @@
 // JavaScript source code
 // https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture
 // https://github.com/webrtcHacks/adapter
-async function startCapture(gdmOptions) {
+
+import adapter from 'webrtc-adapter';
+async function startCapture(/*gdmOptions*/) {
   let captureStream = null;
 
   try {
@@ -15,7 +17,7 @@ async function startCapture(gdmOptions) {
 //constants passed into get media display
 const gdmOptions = {
   video: {
-    cursor: "never" // display cursor
+    cursor: "never" // never display cursor
   },
   audio: {
     echoCancellation: true,
