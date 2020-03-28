@@ -54,12 +54,12 @@ app.get('/', function (req, res, next) {
     if (req.session.loggedin) {
         console.log('Logged in');
         console.log("Username: " + req.session.uName);
-        
+        res.sendFile(__dirname + '/public/index.html');
     }
     else {
         res.redirect('/login');
     }
-    res.sendFile(__dirname + '/public/index.html');
+    
     // Example MySQL command 
     /*
     con.query("SELECT * FROM people;", function (err, rows, fields) {
@@ -86,24 +86,24 @@ app.get('/about', function(req, res, next) {
     if (req.session.loggedin) {
         console.log('Logged in');
         console.log("Username: " + req.session.uName);
-
+        res.sendFile(__dirname + '/public/about.html');
     }
     else {
         res.redirect('/login');
     }
-    res.sendFile(__dirname + '/public/about.html');
+    
 })
 
 app.get('/contact', function (req, res, next) {
     if (req.session.loggedin) {
         console.log('Logged in');
         console.log("Username: " + req.session.uName);
-
+        res.sendFile(__dirname + '/public/contact.html');
     }
     else {
         res.redirect('/login');
     }
-    res.sendFile(__dirname + '/public/contact.html');
+    
 })
 
 app.get('/scripts/script.js', function (req, res, next) {
