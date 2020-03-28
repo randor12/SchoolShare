@@ -194,8 +194,8 @@ var exists = {e: false};
 //     });
 // }
 
-app.get('/list', function (req, res, next) {
-    res.json(exists);
+app.get('/user', function (req, res, next) {
+    res.json(req.session);
 })
 
 app.post('/list', function(req, rest, next) {

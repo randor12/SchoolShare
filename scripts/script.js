@@ -36,3 +36,17 @@ function exists() {
         url: "/list"
     })
 }
+
+function getUser() {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/user",
+        success:
+            function (data) {
+                $.each(data, function (index, value) {
+                    console.log(value.email + " " + value.loggedIn);
+                });
+            }
+    });
+}
