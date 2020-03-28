@@ -122,3 +122,9 @@ td, th {
 tr:nth-child(even) {
   background-color: #555252;
 }
+
+
+table, th, td {
+  border: 1px solid black;
+  padding: 15px;
+}
