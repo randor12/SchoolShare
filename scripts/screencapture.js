@@ -1,7 +1,8 @@
 // JavaScript source code
 // https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture
 // https://github.com/webrtcHacks/adapter
-
+// Simplily a possiblity for the screen capture, will need to do a npm install 
+// npm install webrtc-adapter
 import adapter from 'webrtc-adapter';
 async function startCapture(/*gdmOptions*/) {
   let captureStream = null;
