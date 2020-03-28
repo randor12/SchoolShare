@@ -141,6 +141,8 @@ app.post('/login', function (request, response) {
                 {
                     request.session.loggedin = true;
                     request.session.uName = results[0].username;
+                    request.session.email = results[0].email;
+
                     console.log("Successfully Logged In!");
                     response.redirect('/');
                 }
@@ -194,8 +196,8 @@ var exists = {e: false};
 //     });
 // }
 
-app.get('/list', function (req, res, next) {
-    res.json(exists);
+app.get('/user', function (req, res, next) {
+    res.json(req.session);
 })
 
 app.post('/list', function(req, rest, next) {
@@ -285,6 +287,25 @@ app.get('/resetPass', function(req, res, next) {
     }
 })
 
+app.get('/feed', function(req, res, next) {
+    if (req.session.loggedin) {
+        res.sendFile(__dirname + '/public/feed.html');
+    }
+    else {
+        res.redirect('/login');
+    }
+})
+
+app.get('/settings', function(req, res, next) {
+    if (req.session.loggedin) {
+        res.sendFile(__dirname + '/public/settings.html');
+
+    }
+    else {
+        res.redirect('/login');
+    }
+})
+
 app.post('/resetPass', function(req, res, next) {
     var salt = saltPass(15);
     var hashPass = hashPasswd(req.body.password, salt);
@@ -297,6 +318,6 @@ app.post('/resetPass', function(req, res, next) {
         console.log("Updated Password for User");
         
     })
-    req.session.resetPass = undefined;
+    req.session.destroy();
     res.redirect('/login');
 })
