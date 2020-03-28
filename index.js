@@ -237,3 +237,17 @@ app.get('/signup', function (req, res, next) {
 app.get('/forgotPass', function(req, res, next) {
     res.sendFile(__dirname + '/public/forgotPass.html');
 })
+
+app.post('/forgotPass', function(req, res, next) {
+    console.log("Forgot Password");
+    if (alreadySignedUp(req.body.email)) {
+        res.redirect('/resetPass');
+    }
+    else {
+        res.send('Email not found');
+    }
+})
+
+app.get('/resetPass', function(req, res, next) {
+    res.sendFile(__dirname + '/public/resetPass.html');
+})

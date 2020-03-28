@@ -7,17 +7,38 @@
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-    <!--Navigation bar-->
     <div class="navbar">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
         <a href="/login">Sign In</a>
         <a href="/signup">Sign Up</a>
     </div>
-    <!--Main Code-->
     <div class="main">
         <h2>Forgot Password</h2>
+        <div class="container">
+            <form method="POST" action="forgotPass">
+                <div class="row">
+                    <input type="text" id="email" name="email" placeholder="Email" required>
+                    <button type="submit">Reset Password</button>
+                </div>
+            </form>
+        </div>
+    
+        <div class="bottom-container">
+            <div class="row">
+                <div class="col">
+                    <!--Sign Up Page-->
+                    <a href="/login" style="color:white" class="btn">Sign In</a>
+                </div>
+                <div class="col">
+                    <!--Forgot Password-->
+                    <a href="/forgotPass" style="color:white" class="btn">Forgot password?</a>
+                </div>
+                <div class="col">
+                    <!--Home Button-->
+                    <a href="/" style="color:white" class="btn">Cancel</a>
+                </div>
+            </div>
+        </div>
+    
     </div>
 </body>
 </html>
