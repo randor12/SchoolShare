@@ -56,6 +56,9 @@ app.get('/', function (req, res, next) {
         console.log("Username: " + req.session.uName);
         
     }
+    else {
+        res.redirect('/login');
+    }
     res.sendFile(__dirname + '/public/index.html');
     // Example MySQL command 
     /*
@@ -80,10 +83,26 @@ app.get('/styles/style.css', function (req, res, next) {
 })
 
 app.get('/about', function(req, res, next) {
+    if (req.session.loggedin) {
+        console.log('Logged in');
+        console.log("Username: " + req.session.uName);
+
+    }
+    else {
+        res.redirect('/login');
+    }
     res.sendFile(__dirname + '/public/about.html');
 })
 
 app.get('/contact', function (req, res, next) {
+    if (req.session.loggedin) {
+        console.log('Logged in');
+        console.log("Username: " + req.session.uName);
+
+    }
+    else {
+        res.redirect('/login');
+    }
     res.sendFile(__dirname + '/public/contact.html');
 })
 
