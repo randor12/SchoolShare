@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Room</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../styles/bootstrap.css">
+</head>
+<body>
+    <div class="navbar">
+        <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
+        <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
+        <a href="/createRoom" class="navbar-text p-2 mx-1 text-white">Create Room </a>
+        <a href="/joinRoom" class="navbar-text p-2 mx-1 text-white">Join Room </a>
+        <a href="/about" class="navbar-text p-2 mx-1 text-white">About </a>
+        <a href="/contact" class="navbar-text p-2 mx-1 text-white mr-auto"> Contact Us</a>
+        <a href="/browser" class="navbar-text p-2 mx-1 text-white mr-auto"> Browser</a>
+        <a href="/logout" class="btn btn-align-middle btn-primary mr-1" type="button" id="logout" aria-haspopup="true"
+            aria-expanded="false"> Logout
+        </a>
+    </div>
+    <div class="main">
+        <form method="POST" action="/connect">
+            <input type="connect" id="connect" name="connect" placeholder="Connection Link" required>
+            <button type="submit">Connect</button>
+        </form>
+    </div>
+</body>
+</html>
