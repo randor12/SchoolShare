@@ -361,5 +361,5 @@ app.get('/public/Images/phone.png', function(req, res, next) {
 })
 
 app.get('/public/Images/user.png', function(req, res, next) {
-    res.sendFile(__dirname + 'public/Images/user.png');
+    res.sendFile(__dirname + '/public/Images/user.png');
 })
