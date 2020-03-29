@@ -15,17 +15,23 @@
 
 
     <div class="main" style="padding-top:220px;">
-        <div class="container text-center border border-dark rounded"
+        <div class="container text-center border border-white rounded"
         style="backdrop-filter: blur(9px);">
-        <h2 style="color:dodgerblue;">Sign Up Page</h2>
-        <div class="container">
-            <form method="POST" action="signup">
-                <div class="row">
-                    <input type="text" id="email" name="email" placeholder="Email" onchange="exists();" required>
-                    <input type="text" id="username" name="username" placeholder="Username" required>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                    <button type="submit">Sign Up</button>
+        <h2 style="font-weight: bold; color:dodgerblue; padding-top: 70px; padding-bottom: 100px;">Sign Up Page</h2>
+        <div class="container text-center">
+            <form class="container text-center" method="POST" action="signup">
+                <div class="row text-center">
+                    <input class="form-control-sm" type="text" id="email" name="email" placeholder="Email" onchange="exists();" required>
+
                 </div>
+                <div class="row text-center">
+                    <input class="form-control-sm" type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="row text-center">
+                    <input class="form-control-sm" type="password" id="password" name="password" placeholder="Password" required>
+                    
+                </div>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
 
