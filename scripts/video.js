@@ -10,9 +10,17 @@ function getRoomID() {
     }
     $('#room-id').html('Room ID: ' + result);
 
+    getDevices();
     getVideo();
 
 }
+
+async function getDevices() {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    console.log(devices);
+}
+
+
 
 function getVideo() {
     // Older browsers might not implement mediaDevices at all, so we set an empty object first
