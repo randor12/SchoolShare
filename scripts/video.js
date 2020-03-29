@@ -16,8 +16,13 @@ function getRoomID() {
 }
 
 async function getDevices() {
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    console.log(devices);
+    if (navigator == undefined)
+        console.log("Navigator is undefined");
+    if (navigator.mediaDevices != undefined)
+    {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        console.log(devices);
+    }
 }
 
 
