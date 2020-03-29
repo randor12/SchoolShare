@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="../styles/bootstrap.css">
     <link href="signinversion2.css" rel="login style sheet">
 </head>
-<body style="background-image:url(https://wallpaperaccess.com/full/83106.jpg);
-    background-size: cover;">
+<body style="background-image:url(https://wallpaperaccess.com/full/83106.jpg); 
+    background-size: cover;" onpageshow="getLoginAlert();">
 <div class="container text-center " style="padding: 60px; max-width: 750px;" onpageshow="getLoginAlert(); ">
-    <form class="form-signin">
+    <form class="form-signin" method="POST" action="login">
         <h1 class="mt-4 text-primary">SchoolShare</h1>
         <img class="mb-4" src="https://cdn.zapier.com/storage/developer/472b2b8aba2dc38d4ef605c955341739_6.png"font-weight-normal
         alt="" width="128" height="128">
