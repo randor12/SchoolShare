@@ -25,6 +25,9 @@ async function getDevices() {
         const devices = await navigator.mediaDevices.enumerateDevices();
         console.log(devices);
     }
+    else {
+        console.log('Navigator Media Devices can\'t be found');
+    }
 }
 
 
