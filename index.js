@@ -7,9 +7,9 @@ const auth = require('./auth.json');
 var session = require('express-session');
 var path = require('path');
 var crypto = require('bcryptjs');
-const loginFunc = require('./scripts/login');
 // Communicate with the MySQL
 const mysql = require('mysql')
+
 
 // This is where the connection object is setup. Pay attention to the fields
 var con = mysql.createConnection({
@@ -348,4 +348,8 @@ app.get('/joinRoom', function(req, res, next) {
         res.sendFile(__dirname + '/public/joinRoom.html');
     else
         res.redirect('/login');
+})
+
+app.get('/scripts/video.js', function(req, res, next) {
+    res.sendFile(__dirname + '/scripts/video.js');
 })
