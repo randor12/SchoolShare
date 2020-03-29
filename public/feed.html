@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
 </head>
-<body>
+<body onpageshow="settingsInputUserInfo();">
     <div class="navbar">
         <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
         <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
@@ -17,20 +17,53 @@
         <a href="/about" class="navbar-text p-2 mx-1 text-white">About </a>
         <a href="/contact" class="navbar-text p-2 mx-1 text-white mr-auto"> Contact Us</a>
         <a href="/browser" class="navbar-text p-2 mx-1 text-white mr-auto"> Browser</a>
+		<a href="/settings" class="navbar-text p-2 mx-1 text-white ml-auto" id="settings"> Settings</a>
         <a href="/logout" class="btn btn-align-middle btn-primary mr-1" type="button" id="logout" aria-haspopup="true"
             aria-expanded="false"> Logout
         </a>
-        <h2>  <type="text" id="user" onload="getUsers().uName;" required> </h2>
     </div>
     <div class="main">
+        <form>
+            <label for="feed">URL to Embed:</label>
+            <input type="url" id="feed" name="url"><br><br>
+       </form> 
+       <form>
+            <label for="feed">Description for Video:</label>
+            <input type="text" id="feed" name="title"><br><br>
+            <button onclick="addToPage()">Submit</button> 
+       </form> 
         
-        
-        <div class="videos">
-             <h2> Uploaded Videos</h2>
-             <form> <!-- upload a vido from computer, belive still needs work, such as destination -->
-                <input id="video_file" name="video_file" type="file">
-                <input type="submit" class="button" value="Upload">
-            </form><bk
+       <script>
+            function addToPage(){
+                var vid = <iframe width="420" height="345" id="uName"/>;
+                var d = document.getElementsByTagName("p")[0];
+                var p = <p></p>
+                var link = document.getElementsByName("feed").value;
+                var description = document.getElementsByName("title").value;
+                if(!isUrl(link))
+            	    alert("Please enter a valid embedable url");
+                else{
+            	    vid.setAttribute('src', link);
+            	    vid.setAttribute('title', link);
+            	    p.appendChild(vid);
+            	    var body = document.getElementById("body");
+            	    p.prependTo(body);
+                }
+        }
+        </script>
+        <script>
+        function isURL(str) {
+            var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+        return pattern.test(str);
+        }
+        </script>
+    </div>
+    <div id="body">
 
             <!-- the videos uploaded or whetever -->
             <!-- would be the vidos from wherver they are stored, maybe by chronilogical order? -->
@@ -49,12 +82,11 @@
         </iframe><br>
             <text></text><br><br></p>
     </div>
-      <script>
+     <script>
             var d = document.getElementsByTagName("iframe");
             var x = document.getElementsByTagName("text");
             for (var i = 0; i < d.length; i++)
                 x[i].innerHTML = d[i].id + ": " + d[i].title;
     </script>
-
 </body>
 </html>
