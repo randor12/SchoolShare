@@ -7,44 +7,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../scripts/script.js"></script>
-    <link rel="stylesheet" href="../styles/signIn.css">
+    <link rel="stylesheet" href="../styles/bootstrap.css">
+    <link href="signinversion2.css" rel="login style sheet">
 </head>
-<body onpageshow="getLoginAlert();">
-    <div class="navbar">
-        <a href="/login">Sign In</a>
-        <a href="/signup">Sign Up</a>
-    </div>
-    <div class="main">
-        <h2>School Share Login Form</h2>
-        
-        <div class="container">
-            <form method="POST" action="login">
-                <div class="row">
-                    <h2 style="text-align:center">Login Page</h2>
-                    <input type="text" id="email" name="email" placeholder="Email" required>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                    <button type="submit">Login</button>
-                </div>
-            </form>
+<body style="background-image:url(https://wallpaperaccess.com/full/83106.jpg);
+    background-size: cover;">
+<div class="container text-center " style="padding: 60px; max-width: 750px;" onpageshow="getLoginAlert(); ">
+    <form class="form-signin">
+        <h1 class="mt-4 text-primary">SchoolShare</h1>
+        <img class="mb-4" src="https://cdn.zapier.com/storage/developer/472b2b8aba2dc38d4ef605c955341739_6.png"font-weight-normal
+        alt="" width="128" height="128">
+        <h3 class="mt-3 mb-3 font-weight-normal" style="color: black;">Please Sign In</h3>
+        <div class="row">
+        <label for="email" class="sr-only">Email Address</label>
+        <input type="email" id="email" class="form-control" placeholder="Email Address" required autofocus>
         </div>
+        <div class="row">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="Password" required>
+         </div>
         
-        <div class="bottom-container">
-            <div class="row">
-                <div class="col">
-                    <!--Sign Up Page-->
-                    <a href="/signup" style="color:white" class="btn">Sign up</a>
-                </div>
-                <div class="col">
-                    <!--Forgot Password-->
-                    <a href="/forgotPass" style="color:white" class="btn">Forgot password?</a>
-                </div>
-                <div class="col">
-                    <!--Home Button-->
-                    <a href="/" style="color:white" class="btn">Cancel</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
+        <button class="btn btn-lrg btn-primary btn-block" type="submit">Sign in</button>
+        
+    </form>
+</div>
 </body>
 </html>
