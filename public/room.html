@@ -11,118 +11,24 @@
     <link rel="stylesheet" href="../styles/signIn.css">
     
 </head>
-<body>
+<body onpageshow="getRoomID();">
     <!--Navigation bar-->
     <div class="navbar">
         <a href="/">Exit Room</a>
         <a href="/logout">Logout</a>
     </div>
     <div class="main">
-        <div>
+        <div class="title">
             <h2>School Share Room</h2>
+            <h3 id="room-id">Room ID: </h3>
         </div>
-        <div class="ui two column stackable grid">
-        
-            <!-- Chat Section -->
-            <div class="ui ten wide column">
-                <div class="ui segment">
-                    <!-- Chat Room Form -->
-                    <div class="form">
-                        <div class="fields">
-                            <div class="field">
-                                <label>Room</label>
-                                <input type="text" placeholder="Enter room name" id="roomName" name="roomName">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="ui buttons">
-                            <div id="create-btn" class="ui submit orange button">Create Room</div>
-                            <div class="or"></div>
-                            <div id="join-btn" class="ui submit green button">Join Room</div>
-                        </div>
-                    </div>
-                    <!-- Chat Room Messages -->
-                    <div id="chat"></div>
-                </div>
-            </div>
-            <!-- End of Chat Section -->
-        
-            <!-- Local Camera -->
-            <div class="ui six wide column">
-                <h4 class="ui center aligned header" style="margin:0;">
-                    Local Camera
-                </h4>
-                <img id="local-image" class="ui large image" src="../images/blankImage.png">
-                <video id="local-video" class="ui large image hidden" autoplay></video>
-            </div>
-        
+        <div class="self">
+            <video style="width: 500px;height: 281px;" id="self-vid" controls autoplay>
+            </video>
+            <button id="video-display">Stop Video</button>
+            <button id="mute">Mute</button>
         </div>
-        
-        <!-- Remote Cameras -->
-        <h3 class="ui center aligned header">Remote Cameras</h3>
-        <div id="remote-videos" class="ui stackable grid">
-            <div class="four wide column">
-                <img class="ui centered medium image" src="../images/blankImage.png">
-            </div>
-            <div class="four wide column">
-                <img class="ui centered medium image" src="../images/blankImage.png">
-            </div>
-            <div class="four wide column">
-                <img class="ui centered medium image" src="../images/blankImage.png">
-            </div>
-            <div class="four wide column">
-                <img class="ui centered medium image" src="../images/blankImage.png">
-            </div>
-        </div>
-
-        <!-- TEMPLATES -->
-        <!-- Remote Video Template -->
-        <script id="remote-video-template" type="text/x-handlebars-template">
-            <div id="{{ id }}" class="four wide column">
-              <img class="ui centered medium image" src="images/image.png">
-            </div>
-          </script>
-        
-        <!-- Chat Content Template -->
-        <script id="chat-content-template" type="text/x-handlebars-template">
-           {{#each messages}}
-            <div class="event">
-              <div class="label">
-                <i class="icon blue user"></i>
-              </div>
-              <div class="content">
-                <div class="summary">
-                  <a href="#"> {{ username }}</a> posted on
-                  <div class="date">
-                    {{ postedOn }}
-                  </div>
-                </div>
-                <div class="extra text">
-                  {{ message }}
-                </div>
-              </div>
-            </div>
-          {{/each}}
-          </script>
-        
-        <!-- Chat Template -->
-        <script id="chat-template" type="text/x-handlebars-template">
-            <h3 class="ui orange header">Room ID -> <strong>{{ room }}</strong></h3>
-            <hr>
-            <div id="chat-content" class="ui feed"> </div>
-            <hr>
-            <div class="ui form">
-              <div class="ui field">
-                <label>Post Message</label>
-                <textarea id="post-message" name="post-message" rows="1"></textarea>
-              </div>
-              <div id="post-btn" class="ui primary submit button">Send</div>
-            </div>
-          </script>
-        
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-        <script src="https://simplewebrtc.com/latest-v2.js"></script>
+        <div class="remote-videos"></div>
         <script src="../scripts/video.js"></script>
     </div>
 </body>
