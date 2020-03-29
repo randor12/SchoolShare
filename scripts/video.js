@@ -18,6 +18,8 @@ function getRoomID() {
 async function getDevices() {
     if (navigator == undefined)
         console.log("Navigator is undefined");
+    else
+        console.log(navigator);
     if (navigator.mediaDevices != undefined)
     {
         const devices = await navigator.mediaDevices.enumerateDevices();
