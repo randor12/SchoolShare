@@ -6,6 +6,8 @@
     <title>Room</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../scripts/script.js"></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="../scripts/video.js"></script>
     <link rel="stylesheet" href="../styles/signIn.css">
 </head>
 <body>
@@ -15,9 +17,10 @@
         <a href="/logout">Logout</a>
     </div>
     <div class="main">
-        <h2>Room: </h2>
-        <div class="sharedVid"></div>
-        <div class="users"></div>
+        <h2>School Share Room</h2>
+        <video autoplay></video><br />
+        <button id="initiateBtn" onclick="startVideo();">Start Sharing</button>
+        <button id="stopBtn" onclick="stopVideo();">Stop Sharing</button>
     </div>
 </body>
 </html>

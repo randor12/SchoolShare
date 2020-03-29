@@ -7,9 +7,21 @@ const auth = require('./auth.json');
 var session = require('express-session');
 var path = require('path');
 var crypto = require('bcryptjs');
-const loginFunc = require('./scripts/login');
 // Communicate with the MySQL
 const mysql = require('mysql')
+var http = require('http').Server(app);   
+var io = require('socket.io')(http);
+
+io.on('connection', () => {
+    console.log('user connected');
+});
+
+var socket = io.connect;
+
+// socket.on('initiate', () => {
+//     io.emit('initiate');
+// });
+
 
 // This is where the connection object is setup. Pay attention to the fields
 var con = mysql.createConnection({
@@ -39,7 +51,6 @@ app.use(session({
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 //start the server
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!!`)
@@ -80,6 +91,10 @@ app.get('/', function (req, res, next) {
 // Send the CSS
 app.get('/styles/style.css', function (req, res, next) {
     res.sendFile(__dirname + '/styles/style.css');
+})
+
+app.get('/styles/browser.css', function (req, res, next) {
+    res.sendFile(__dirname + '/styles/browser.css');
 })
 
 app.get('/about', function(req, res, next) {
@@ -348,4 +363,8 @@ app.get('/joinRoom', function(req, res, next) {
         res.sendFile(__dirname + '/public/joinRoom.html');
     else
         res.redirect('/login');
+})
+
+app.get('/scripts/video.js', function(req, res, next) {
+    res.sendFile(__dirname + '/scripts/video.js');
 })

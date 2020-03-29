@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room</title>
+    <title>Feed</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
-    <link rel="stylesheet" href="../styles/signIn.css">
 </head>
 <body>
-    <!--Navigation bar-->
     <div class="navbar">
         <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
         <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
@@ -17,13 +16,14 @@
         <a href="/joinRoom" class="navbar-text p-2 mx-1 text-white">Join Room </a>
         <a href="/about" class="navbar-text p-2 mx-1 text-white">About </a>
         <a href="/contact" class="navbar-text p-2 mx-1 text-white mr-auto"> Contact Us</a>
+        <a href="/browser" class="navbar-text p-2 mx-1 text-white mr-auto"> Browser</a>
         <a href="/logout" class="btn btn-align-middle btn-primary mr-1" type="button" id="logout" aria-haspopup="true"
             aria-expanded="false"> Logout
         </a>
     </div>
     <div class="main">
     <h1> Broswer</h1> <!-- set to just the google home page so one can search for whatever-->
-    <iframe width="100%" height="100%" <!-- does not work correctly for height -->  src="https://www.google.com/webhp?igu=1" ></iframe>
-
+    <iframe class="vid" width="100%" height="device-height" src="https://www.google.com/webhp?igu=1" ></iframe>
+    </div>
 </body>
 </html>
