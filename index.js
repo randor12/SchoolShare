@@ -227,6 +227,8 @@ app.post('/list', function(req, rest, next) {
     })
 })
 
+var signUpAlert = {alert: false};
+
 // Sign up for the application
 app.post('/signup', function (req, res) {
     console.log('Signing Up...');
@@ -245,14 +247,21 @@ app.post('/signup', function (req, res) {
         con.query(req, function (error, results, field) {
             if (error) throw error;
             console.log("Result: ", results);
+            signUpAlert.alert = false;
             res.redirect('/');
         })
     }
     else {
         console.log('Signed Up Already');
-        res.send('<p>You are already signed up!</p>\n<a href="/signup">Redirect to sign up</a>');
+        signUpAlert.alert = true;
+        res.redirect('/signup');
     }
 })
+
+app.get('/alreadySignedUp', function(req, res, next) {
+    res.json(signUpAlert);
+    signUpAlert.alert = false;
+});
 
 app.get('/logout', function (req, res, next) {
     req.session.destroy(function(err) {

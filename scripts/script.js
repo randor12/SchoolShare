@@ -61,3 +61,20 @@ function getUser() {
     });
 }
 
+function getAlert() {
+    $.ajax({
+        dataType: "json",
+        url: "/alreadySignedUp",
+        success:
+        function(data)
+        {
+            console.log('Got alert data');
+            $.each(data, function (value) {
+                console.log('Already signed up: ' + data.alert);
+                if (data.alert) {
+                    alert('Already signed up!');
+                }
+            })
+        }
+    })
+}
