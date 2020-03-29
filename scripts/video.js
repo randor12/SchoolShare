@@ -7,6 +7,7 @@ function startVideo()
     console.log('Video on');
 
     navigator.mediaDevices.getUserMedia({
+        audio: true,
         video: {
             mediaSource: "screen",
             width: { max: '1920' },

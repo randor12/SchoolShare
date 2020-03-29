@@ -93,10 +93,6 @@ app.get('/styles/style.css', function (req, res, next) {
     res.sendFile(__dirname + '/styles/style.css');
 })
 
-app.get('/styles/browser.css', function (req, res, next) {
-    res.sendFile(__dirname + '/styles/browser.css');
-})
-
 app.get('/about', function(req, res, next) {
     if (req.session.loggedin) {
         console.log('Logged in');
@@ -212,7 +208,9 @@ var exists = {e: false};
 // }
 
 app.get('/user', function (req, res, next) {
-    res.json(req.session);
+    var User = {email: req.session.email, uName: req.session.uName};
+    console.log("Email: "+ User.email);
+    res.json(User);
 })
 
 app.post('/list', function(req, rest, next) {

@@ -1,12 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feed</title>
+    <title>Join Room</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../styles/bootstrap.css">
-    <script src="../scripts/script.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -22,8 +21,10 @@
         </a>
     </div>
     <div class="main">
-    <h1> Broswer</h1> <!-- set to just the google home page so one can search for whatever-->
-    <iframe class="vid" width="100%" height="document.body.clientHeight" src="https://www.google.com/webhp?igu=1" ></iframe>
+        <form method="POST" action="/connect">
+            <input type="connect" id="connect" name="connect" placeholder="Connection Link" required>
+            <button type="submit">Connect</button>
+        </form>
     </div>
 </body>
 </html>
