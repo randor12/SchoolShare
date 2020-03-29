@@ -6,7 +6,7 @@ navigator.mediaDevices.getUserMedia({
         mediaSource: "screen",
         width: { max: '1920' },
         height: { max: '1080' },
-        frameRate: { max: '10' }
+        frameRate: { max: '60' }
     }
 }).then(gotMedia);
 
