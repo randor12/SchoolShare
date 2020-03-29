@@ -93,6 +93,10 @@ app.get('/styles/style.css', function (req, res, next) {
     res.sendFile(__dirname + '/styles/style.css');
 })
 
+app.get('/styles/browser.css', function (req, res, next) {
+    res.sendFile(__dirname + '/styles/browser.css');
+})
+
 app.get('/about', function(req, res, next) {
     if (req.session.loggedin) {
         console.log('Logged in');
