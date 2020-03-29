@@ -51,7 +51,6 @@ function getUser() {
                 console.log(data.uName);
 
                 $.each(data, function (value) {
-                    $('#users').html(""); // Reset data displayed 
                     // ABOVE: <div class="users"> <!-- Writes info here --> </div>
                     console.log(data.email + "; " + data.uName);
                     users = data.uName;
