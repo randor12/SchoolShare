@@ -41,27 +41,24 @@ function exists() {
 }
 
 function getUser() {
+    console.log("Collecting Users");
     $.ajax({
-        type: "GET",
         dataType: "json",
         url: "/user",
         success:
             function (data) {
-                $.each(data, function (index, value) {
+                console.log('Success Collecting Data');
+                console.log(data.uName);
+
+                $.each(data, function (value) {
                     $('#users').html(""); // Reset data displayed 
                     // ABOVE: <div class="users"> <!-- Writes info here --> </div>
-                    console.log(value.email + "; " + value.loggedIn + "; " + value.uName);
-                    users = value.uName;
-                    emails = value.email;
+                    console.log(data.email + "; " + data.uName);
+                    users = data.uName;
+                    emails = data.email;
+                    $('#settings').html("Welcome, " + data.uName);
                 });
             }
     });
 }
 
-function getUsername() {
-    return users;
-}
-
-function getEmail() {
-    return emails;
-}

@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SchoolShare - Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../scripts/script.js"></script>
     <link rel="stylesheet" href="../styles/bootstrap.css">
 </head>
 
-<body>
+<body onpageshow="getUser();">
     <header>
         <div class="navbar">
         <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
@@ -18,6 +19,7 @@
         <a href="/about" class="navbar-text p-2 mx-1 text-white">About </a>
         <a href="/contact" class="navbar-text p-2 mx-1 text-white mr-auto"> Contact Us</a>
         <a href="/browser" class="navbar-text p-2 mx-1 text-white mr-auto"> Browser</a>
+        <a href="/settings" class="navbar-text p-2 mx-1 text-white mr-auto" id="settings"></a>
         <a href="/logout" class="btn btn-align-middle btn-primary mr-1" type="button" id="logout" aria-haspopup="true"
             aria-expanded="false"> Logout
         </a>

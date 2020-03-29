@@ -208,7 +208,9 @@ var exists = {e: false};
 // }
 
 app.get('/user', function (req, res, next) {
-    res.json(req.session);
+    var User = {email: req.session.email, uName: req.session.uName};
+    console.log("Email: "+ User.email);
+    res.json(User);
 })
 
 app.post('/list', function(req, rest, next) {
