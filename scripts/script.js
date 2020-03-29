@@ -2,6 +2,9 @@
  * Main functions for the Website can go here
  */
 
+ var users = "";
+ var emails = "";
+
 function notLoggedIn() {
     
     var element = document.getElementById('navbar');
@@ -48,7 +51,17 @@ function getUser() {
                     $('#users').html(""); // Reset data displayed 
                     // ABOVE: <div class="users"> <!-- Writes info here --> </div>
                     console.log(value.email + "; " + value.loggedIn + "; " + value.uName);
+                    users = value.uName;
+                    emails = value.email;
                 });
             }
     });
+}
+
+function getUsername() {
+    return users;
+}
+
+function getEmail() {
+    return emails;
 }
