@@ -27,11 +27,15 @@
         <div class = "username">
             <p> <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
             alt="user" width="42" height="42" align="middle"> Username: <type="text" id="user" onload="getUsername();" required>
-            getUsername();</p>
+            </p>
+            document.getElementsByClassName("username")[0].innerHTML += getUsername();
+        </div>
+        <div class = "email">
             <p> <img src="https://www.freepnglogos.com/uploads/email-png/blue-email-box-circle-png-transparent-icon-2.png"
             alt="email" width="42" height="42" align="middle">Email: <type="text" id="email" onload="getEmail();" required>
-            getEmail();</p>
-        </div>
+            </p>
+            document.getElementsByClassName("email")[0].innerHTML += getEmail();
+          </div>
         <p> <img src="https://lh3.googleusercontent.com/proxy/E7ihDVGCsYIlUa9ykLKjx5kvVOHrEkdVdY52Ad8aZH7EXF27TiOg73j2NMYmVPx2aCfXWb89-f-sk6DXVoL8MebYgVLDFpzbd8wADp8UmdS-pS3k8vIWMGw"
         alt="passcode" width="42" height="42" align="middle"> <a href="/resetPass" class="btn">Change Password</a></p>
         <h2> <img src="https://image.flaticon.com/icons/svg/167/167574.svg" alt="customer" width="42" height="42" align="middle">If you have any issues, please contact us with the information from the 
