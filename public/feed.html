@@ -21,10 +21,8 @@
         <a href="/logout" class="btn btn-align-middle btn-primary mr-1" type="button" id="logout" aria-haspopup="true"
             aria-expanded="false"> Logout
         </a>
-        <h2>  <type="text" id="user" onload="getUsers().uName;" required> </h2>
     </div>
     <div class="main">
-        <div class="main">
         <form>
             <label for="feed">URL to Embed:</label>
             <input type="url" id="feed" name="url"><br><br>
@@ -35,22 +33,22 @@
             <button onclick="addToPage()">Submit</button> 
        </form> 
         
-        <script>
-        function addToPage(){
-            var vid = <iframe width="420" height="345" id="uName"/>;
-            var d = document.getElementsByTagName("p")[0];
-            var p = <p></p>
-            var link = document.getElementsByName("feed").value;
-            var description = document.getElementsByName("title").value;
-            if(!isUrl(link))
-            	alert("Please enter a valid embedable url");
-            else{
-            	vid.setAttribute('src', link);
-            	vid.setAttribute('title', link);
-            	p.appendChild(vid);
-            	var body = document.getElementById("body");
-            	p.prependTo(body);
-            }
+       <script>
+            function addToPage(){
+                var vid = <iframe width="420" height="345" id="uName"/>;
+                var d = document.getElementsByTagName("p")[0];
+                var p = <p></p>
+                var link = document.getElementsByName("feed").value;
+                var description = document.getElementsByName("title").value;
+                if(!isUrl(link))
+            	    alert("Please enter a valid embedable url");
+                else{
+            	    vid.setAttribute('src', link);
+            	    vid.setAttribute('title', link);
+            	    p.appendChild(vid);
+            	    var body = document.getElementById("body");
+            	    p.prependTo(body);
+                }
         }
         </script>
         <script>
@@ -64,8 +62,6 @@
         return pattern.test(str);
         }
         </script>
-
-
     </div>
     <div id="body">
 
