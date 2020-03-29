@@ -325,3 +325,17 @@ app.post('/resetPass', function(req, res, next) {
 app.get('/styles/bootstrap.css', function (req, res, next) {
     res.sendFile(__dirname + '/styles/bootstrap.css');
 })
+
+app.get('/createRoom', function (req, res, next) {
+    if (req.session.loggedin)
+        res.sendFile(__dirname + '/public/room.html');
+    else
+        res.redirect('/login');
+});
+
+app.get('/joinRoom', function(req, res, next) {
+    if (req.session.loggedin)
+        res.sendFile(__dirname + '/public/joinRoom.html');
+    else
+        res.redirect('/login');
+})
