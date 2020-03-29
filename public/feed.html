@@ -12,11 +12,12 @@
     <div class="navbar">
         <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
         <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
+        <a href="/createRoom" class="navbar-text p-2 mx-1 text-white">Create Room </a>
+        <a href="/joinRoom" class="navbar-text p-2 mx-1 text-white">Join Room </a>
         <a href="/about" class="navbar-text p-2 mx-1 text-white">About </a>
         <a href="/contact" class="navbar-text p-2 mx-1 text-white mr-auto"> Contact Us</a>
         <a href="/logout" class="btn btn-align-middle btn-primary mr-1" type="button" id="logout" aria-haspopup="true"
             aria-expanded="false"> Logout
-        </a>
     </div>
     <div class="main">
         <h2>  <type="text" id="user" onload="getUsers().uName;" required> </h2>
@@ -31,14 +32,26 @@
             <!-- the videos uploaded or whetever -->
             <!-- would be the vidos from wherver they are stored, maybe by chronilogical order? -->
 
-            <iframe width="420" height="345" src="https://www.youtube.com/embed/YaLLLHugwHw?controls=1">
+            <!-- id is the username of the person, title is the title of the post-->
+            <iframe width="420" height="345" src="https://www.youtube.com/embed/YaLLLHugwHw?controls=1" id="Susan Roth" title="Dissappear">
         </iframe>
-            <iframe width="420" height="345" src="https://www.youtube.com/embed/kRDVXnACx7Y?controls=1">
+            <text></text>
+            <iframe width="420" height="345" src="https://www.youtube.com/embed/kRDVXnACx7Y?controls=1" id="John Smith" title="The Edge">
         </iframe>
-            <iframe width="420" height="345" src="https://www.youtube.com/embed/daV3T2biCfA?controls=1">
+            <text></text>
+            <iframe width="420" height="345" src="https://www.youtube.com/embed/daV3T2biCfA?controls=1" id="Mary Jain" title="Steve Rogers">
         </iframe>
-            <iframe width="420" height="345" src="https://www.youtube.com/embed/wmvXOLpwqeo?controls=1">
+            <text></text>
+            <iframe width="420" height="345" src="https://www.youtube.com/embed/wmvXOLpwqeo?controls=1" id="James Doe" title="Nah Sir">
         </iframe>
+            <text></text>
     </div>
+      <script>
+            var d = document.getElementsByTagName("iframe");
+            var x = document.getElementsByTagName("text");
+            for (var i = 0; i < d.length; i++)
+                x[i].innerHTML = d[i].id + ": " + d[i].title;
+    </script>
+
 </body>
 </html>
