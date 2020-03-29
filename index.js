@@ -296,6 +296,16 @@ app.get('/feed', function(req, res, next) {
     }
 })
 
+
+app.get('/browser', function(req, res, next) {
+    if (req.session.loggedin) {
+        res.sendFile(__dirname + '/public/browser.html');
+    }
+    else {
+        res.redirect('/login');
+    }
+})
+
 app.get('/settings', function(req, res, next) {
     if (req.session.loggedin) {
         res.sendFile(__dirname + '/public/settings.html');
@@ -340,26 +350,31 @@ app.get('/joinRoom', function(req, res, next) {
         res.redirect('/login');
 })
 
-app.get('/public/Images/customer.jpg', function(req, res, next) {
+app.get('/public/Images', function(req, res, next) {
+    res.sendFile(__dirname + '/public/Images');
+})
+
+app.get('/customer', function(req, res, next) {
     res.sendFile(__dirname + '/public/Images/customer.jpg');
 })
 
-app.get('/public/Images/email.png', function (req, res, next) {
+
+app.get('email', function (req, res, next) {
     res.sendFile(__dirname + '/public/Images/email.png');
 })
 
-app.get('/public/Images/gear.png', function (req, res, next) {
+app.get('gear', function (req, res, next) {
     res.sendFile(__dirname + '/public/Image/gear.png');
 })
 
-app.get('/public/Images/passcode.png', function (req, res, next) {
+app.get('passcode', function (req, res, next) {
     res.sendFile(__dirname + '/public/Images/passcode.png');
 })
 
-app.get('/public/Images/phone.png', function(req, res, next) {
+app.get('phone', function(req, res, next) {
     res.sendFile(__dirname + '/public/Images/phone.png');
 })
 
-app.get('/public/Images/user.png', function(req, res, next) {
+app.get('user', function(req, res, next) {
     res.sendFile(__dirname + '/public/Images/user.png');
 })
