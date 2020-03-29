@@ -17,13 +17,22 @@
   },
   "homepage": "https://github.com/randor12/SchoolShare#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "faker": "^4.1.0",
+    "handlebars": "^4.7.3",
+    "jquery": "^3.4.1",
     "mongoose": "^5.9.4",
     "mysql": "^2.18.1",
-    "socket.io": "^2.3.0"
+    "react": "^16.13.1",
+    "semantic-ui-css": "^2.4.1",
+    "simplewebrtc": "^3.0.2",
+    "socket.io": "^2.3.0",
+    "twilio": "^3.41.1",
+    "twilio-video": "^2.3.0"
   }
 }

@@ -10,6 +10,11 @@ var crypto = require('bcryptjs');
 // Communicate with the MySQL
 const mysql = require('mysql')
 var http = require('http').Server(app);   
+var AccessToken = require('twilio').jwt.AccessToken;
+var VideoGrant = AccessToken.VideoGrant;
+var faker = require('faker');
+
+
 var io = require('socket.io')(http);
 
 io.on('connection', () => {
@@ -22,6 +27,37 @@ var socket = io.connect;
 //     io.emit('initiate');
 // });
 
+// Video authentication 
+app.get('/token', function (req, res, next) {
+    var identity = faker.name.findName();
+
+    var token = new AccessToken(
+        auth.twilioSID,
+        auth.apiKeyIDTwilio,
+        apiSecretTwilio
+    )
+
+    token.identity = identity;
+
+    const grant = VideoGrant();
+
+    token.addGrant(grant);
+
+    res.json({
+        identity: identity,
+        token: token.toJwt()
+    })
+
+})
+
+app.get('/images/blankImage.png', function(req, res, next) {
+    res.sendFile(__dirname + '/images/blankImage.png');
+})
+
+app.get('/scripts/roomApp.js', function(req, res, next) {
+    res.sendFile(__dirname + '/scripts/roomApp.js');
+    
+})
 
 // This is where the connection object is setup. Pay attention to the fields
 var con = mysql.createConnection({
@@ -62,7 +98,7 @@ app.listen(port, function () {
 //Middleware that handles GET requests to ‘/’
 app.get('/', function (req, res, next) {
     
-    if (req.session.loggedin) {
+    if (req.session.loggedin != undefined) {
         console.log('Logged in');
         console.log("Username: " + req.session.uName);
         res.sendFile(__dirname + '/public/index.html');
@@ -314,6 +350,9 @@ app.post('/forgotPass', function(req, res, next) {
 })
 
 app.get('/resetPass', function(req, res, next) {
+    if (req.session.email != undefined) {
+        req.session.resetPass = req.session.email;
+    }
     if (req.session.resetPass != undefined)
         res.sendFile(__dirname + '/public/resetPass.html');
     else {

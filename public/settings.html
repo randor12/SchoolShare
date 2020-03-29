@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/style.css">
     <script type="text/javascript" src="../scripts/script.js"></script>
 </head>
-<body>
+<body onpageshow="settingsInputUserInfo();">
 <div class="navbar">
         <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
         <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
@@ -26,13 +26,13 @@
         alt="gear" width="42" height="42" align="middle">Settings</h2>
         <div >
             <p class="username"> <img src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
-            alt="user" width="42" height="42" align="middle"> Username: <type="text" id="user" onload="getUsername();" required>
+            alt="user" width="42" height="42" align="middle"> Username: <type="text" id="uName" required>
             </p>
             <!--document.getElementsByClassName("username")[0].innerHTML += getUsername(); -->
         </div>
         <div>
             <p class = "email"> <img src="https://www.freepnglogos.com/uploads/email-png/blue-email-box-circle-png-transparent-icon-2.png"
-            alt="email" width="42" height="42" align="middle">Email: <type="text" id="email" onload="getEmail();" required>
+            alt="email" width="42" height="42" align="middle">Email: <type="text" id="emailAddress" required>
             </p>
             <!--document.getElementsByClassName("email")[0].innerHTML += getEmail();-->
           </div>

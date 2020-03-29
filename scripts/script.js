@@ -61,6 +61,28 @@ function getUser() {
     });
 }
 
+function settingsInputUserInfo() {
+    console.log("Collecting Users");
+    $.ajax({
+        dataType: "json",
+        url: "/user",
+        success:
+            function (data) {
+                console.log('Success Collecting Data');
+                console.log(data.uName);
+
+                $.each(data, function (value) {
+                    // ABOVE: <div class="users"> <!-- Writes info here --> </div>
+                    console.log(data.email + "; " + data.uName);
+                    users = data.uName;
+                    emails = data.email;
+                    $('#uName').html(data.uName);
+                    $('#emailAddress').html(data.email);
+                });
+            }
+    });
+}
+
 function getAlert() {
     $.ajax({
         dataType: "json",
