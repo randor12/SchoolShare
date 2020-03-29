@@ -9,6 +9,18 @@ var path = require('path');
 var crypto = require('bcryptjs');
 // Communicate with the MySQL
 const mysql = require('mysql')
+var http = require('http').Server(app);   
+var io = require('socket.io')(http);
+
+io.on('connection', () => {
+    console.log('user connected');
+});
+
+var socket = io.connect;
+
+// socket.on('initiate', () => {
+//     io.emit('initiate');
+// });
 
 
 // This is where the connection object is setup. Pay attention to the fields
@@ -39,7 +51,6 @@ app.use(session({
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 //start the server
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!!`)

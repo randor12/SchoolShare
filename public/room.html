@@ -7,6 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../scripts/script.js"></script>
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="<https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js>"></script>
+    <script src="<https://cdnjs.cloudflare.com/ajax/libs/simple-peer/9.1.2/simplepeer.min.js>"></script>
     <script src="../scripts/video.js"></script>
     <link rel="stylesheet" href="../styles/signIn.css">
 </head>
@@ -18,15 +20,9 @@
     </div>
     <div class="main">
         <h2>School Share Room</h2>
-        <video id="video1" playsinline autoplay></video>
-        <video id="video2" playsinline autoplay></video>
-        <video id="video3" playsinline autoplay></video>
-        
-        <div>
-            <button id="startButton">Start</button>
-            <button id="callButton">Call</button>
-            <button id="hangupButton">Hang Up</button>
-        </div>
+        <video autoplay></video><br />
+        <button id="initiateBtn">Start Sharing</button>
+        <button id="stopBtn" style="display:none">Stop Sharing</button>
     </div>
 </body>
 </html>
