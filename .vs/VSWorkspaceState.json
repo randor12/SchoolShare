@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\scripts",
-    "\\styles"
+    "\\public\\Images",
+    "\\scripts"
   ],
-  "SelectedNode": "\\public\\forgotPass.html",
+  "SelectedNode": "\\index.js",
   "PreviewInSolutionExplorer": false
 }

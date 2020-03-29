@@ -349,32 +349,3 @@ app.get('/joinRoom', function(req, res, next) {
     else
         res.redirect('/login');
 })
-
-app.get('/public/Images', function(req, res, next) {
-    res.sendFile(__dirname + '/public/Images');
-})
-
-app.get('/customer', function(req, res, next) {
-    res.sendFile(__dirname + '/public/Images/customer.jpg');
-})
-
-
-app.get('email', function (req, res, next) {
-    res.sendFile(__dirname + '/public/Images/email.png');
-})
-
-app.get('gear', function (req, res, next) {
-    res.sendFile(__dirname + '/public/Image/gear.png');
-})
-
-app.get('passcode', function (req, res, next) {
-    res.sendFile(__dirname + '/public/Images/passcode.png');
-})
-
-app.get('phone', function(req, res, next) {
-    res.sendFile(__dirname + '/public/Images/phone.png');
-})
-
-app.get('user', function(req, res, next) {
-    res.sendFile(__dirname + '/public/Images/user.png');
-})
