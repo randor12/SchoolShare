@@ -10,9 +10,27 @@ function getRoomID() {
     }
     $('#room-id').html('Room ID: ' + result);
 
+    getDevices();
     getVideo();
 
 }
+
+async function getDevices() {
+    if (navigator == undefined)
+        console.log("Navigator is undefined");
+    else
+        console.log(navigator);
+    if (navigator.mediaDevices != undefined)
+    {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        console.log(devices);
+    }
+    else {
+        console.log('Navigator Media Devices can\'t be found');
+    }
+}
+
+
 
 function getVideo() {
     // Older browsers might not implement mediaDevices at all, so we set an empty object first
