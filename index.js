@@ -133,6 +133,8 @@ app.get('/scripts/login.js', function (req, res, next) {
     res.sendFile(__dirname + '/scripts/login.js');
 })
 
+var loginAlerts = {wrongEmail: false, wrongPassword: false};
+
 // Check database for username and password
 app.post('/login', function (request, response) {
     console.log("Authenticating...");
@@ -158,11 +160,13 @@ app.post('/login', function (request, response) {
                     response.redirect('/');
                 }
                 else {
-                    response.send('<p>Incorrect Password!</p>\n<a href="/login">Redirect to login page</a>');
+                    loginAlerts.wrongPassword = true;
+                    response.redirect('/login');
                 }
             } else {
+                loginAlerts.wrongEmail = true;
                 console.log('Email does not exist');
-                response.send('<p>Incorrect Email!</p>\n<a href="/login">Redirect to login page</a>');
+                response.redirect('/login');
                 
             }
             response.end();
@@ -174,6 +178,14 @@ app.post('/login', function (request, response) {
         response.end();
     }
 });
+
+app.get('/loginAlerts', function(req, res, next) {
+    console.log("Wrong Email: " + loginAlerts.wrongEmail);
+    console.log("Wrong Password: " + loginAlerts.wrongPassword);
+    res.json(loginAlerts);
+    loginAlerts.wrongEmail = false;
+    loginAlerts.wrongPassword = false;
+})
 
 // Get salt for password
 function saltPass(length) {

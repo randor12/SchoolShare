@@ -78,3 +78,26 @@ function getAlert() {
         }
     })
 }
+
+function getLoginAlert() {
+    $.ajax({
+        dataType: "json",
+        url: "/loginAlerts",
+        success:
+            function (data) {
+                console.log('Got alert data');
+                $.each(data, function (value) {
+                    console.log("Wrong Email: " + data.wrongEmail);
+                    console.log("wrong Password: " + data.wrongPassword);
+                    if (data.wrongEmail) {
+                        alert('This Email is Incorrect! Try a different email');
+                        data.wrongEmail = false;
+                    }
+                    if (data.wrongPassword) {
+                        alert('The Password is Incorrect! Try a different password');
+                        data.wrongPassword = false;
+                    }
+                })
+            }
+    })
+}
