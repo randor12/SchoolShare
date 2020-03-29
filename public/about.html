@@ -6,18 +6,20 @@
     <title>SchoolShare - About Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../styles/bootstrap.css">
+    <link rel="stylesheetCustom" href="../styles/style.css">
 </head>
 
 <body> 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-transparent">
             <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
-            <a href="/feed" class="navbar-text p-2 mx-1">Feed</a>
-            <a href="/createRoom" class="navbar-text p-2 mx-1">Create Room </a>
-            <a href="/joinRoom" class="navbar-text p-2 mx-1">Join Room </a>
-            <a href="/about" class="navbar-text p-2 mx-1">About </a>
-            <a href="/contact" class="navbar-text p-2 mx-1 mr-auto"> Contact Us</a>
-            <a href="/browser" class="navbar-text p-2 mx-1"> Browser</a>
+            <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
+            <a href="/createRoom" class="navbar-text p-2 mx-1 text-white">Create Room </a>
+            <a href="/joinRoom" class="navbar-text p-2 mx-1 text-white">Join Room </a>
+            <a href="/about" class="navbar-text p-2 mx-1 text-white">About </a>
+            <a href="/contact" class="navbar-text p-2 mx-1 text-white"> Contact Us</a>
+            <a href="/browser" class="navbar-text p-2 mx-1 mr-auto text-white"> Browser</a>
+            <a href="/settings" class="navbar-text p-2 mx-1 text-white ml-auto" id="settings"></a>
             <a href="/logout" class="btn btn-align-middle btn-primary mr-1" type="button" id="logout" aria-haspopup="true" aria-expanded="false"> Logout
             </a>
         </nav>
@@ -26,9 +28,9 @@
     <main role="main">
         <div class="jumbotron d-flex align-items-center" style="background-color: #262626; 
         background-image: url(https://virginiatech.sportswar.com/wp-content/uploads/sites/15/2015/04/vt_war_memorial_2015_01.jpg);
-        height: 100%;">
+        height: 90%;">
             <div class="container">
-                <h1 class="display-1 " style="padding: 155px; text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px, rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px, rgb(0, 0, 0) -0.832294px 1.81859px 0px, rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97998px 0.28224px 0px, rgb(0, 0, 0) -1.87291px -0.701566px 0px, rgb(0, 0, 0) -1.30729px -1.5136px 0px, rgb(0, 0, 0) -0.421592px -1.95506px 0px, rgb(0, 0, 0) 0.567324px -1.91785px 0px, rgb(0, 0, 0) 1.41734px -1.41108px 0px, rgb(0, 0, 0) 1.92034px -0.558831px 0px;">Well Who Are We?</h1>
+                <h1 class="display-1 " style="padding: 120px; text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px, rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px, rgb(0, 0, 0) -0.832294px 1.81859px 0px, rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97998px 0.28224px 0px, rgb(0, 0, 0) -1.87291px -0.701566px 0px, rgb(0, 0, 0) -1.30729px -1.5136px 0px, rgb(0, 0, 0) -0.421592px -1.95506px 0px, rgb(0, 0, 0) 0.567324px -1.91785px 0px, rgb(0, 0, 0) 1.41734px -1.41108px 0px, rgb(0, 0, 0) 1.92034px -0.558831px 0px;">Well Who Are We?</h1>
             </div>
         </div>
         <div class="row text-center">
@@ -37,42 +39,59 @@
                 height="400px" width="400px" style="padding: 15px;">
             </div>
             <!--- Enter the Description of yourself at the <p> placeholder-->
-            <div class="col-lg-6 text-center">
-                <h3>Matt Gonley</h3>
-                <p>Matt's description of himself and everything fun about him</p>
+            <div class="col-md-4 text-center mr-auto">
+                <blockquote class="blockquote">
+                <p> This is Matt and everything great about him!
+                </p>
+                <footer class="blockquote-footer text h1"> Matthew Gonley, <cite title="year and major">VT Computer Science 2022</cite></footer>
+                </blockquote>
             </div>
         </div>
-        <div class="row">
+        <div class="row text-center">
             <div class="col-lg-6 text-center">
                 <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/29572632_353098725202909_2498768942869828969_n.jpg?_nc_cat=108&_nc_sid=7aed08&_nc_ohc=UnA-NKSPAOoAX_kZ3uu&_nc_ht=scontent-iad3-1.xx&oh=b1c527967a9990e25f0b8ebc51db4f93&oe=5EA5669B"
                 height="400px" width="400px" style="padding: 15px;">
             </div>
             <!---Enter the description of yourself at the <p> placeholder-->
-            <div class="col-lg-6 text-center">
-                <h3>Ryan Nicholas</h3>
-                <p>Hi! I'm Ryan and I'm currently a sophomore at Virginia Tech! I am majoring in Computer Science. I enjoy backend development and have a strong interest in machine learning.
+            <div class="col-md-4 text-center mr-auto">
+                <blockquote class="blockquote">
+                <p id="smallparagraphs">Hi! I'm Ryan and I'm currently a sophomore at Virginia Tech! I am majoring in Computer Science. I enjoy backend development and have a strong interest in machine learning.
                     In order to branch out, I wanted to make a website to gain more experience in web development. I initially got involved in programming in High School through my robotics team.
                     After making it to Semi-Finals of the World Championship, I started getting involved in Hackathons. I am always excited to be coding, and looking for more challenges that I
                     can use my skills to help improve the world around me. 
-                </p>   
+                </p>
+                <footer class="blockquote-footer text h1"> Ryan Nicholas, <cite title="year and major">VT Computer Science 2022</cite></footer>
+                 </blockquote>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 text-center">
-                <img src="https://lh3.googleusercontent.com/jaZvy9uSCv3Taz2LbAqWa0-AXYcUmwinQ8eSXt3MIrjkYdCUkd2DJ0JypIlxVIWyZp06jhc-jCqPY3LPm917ntAn86yBH5ns_JygykOYyKoOdrG7EyBf2ocW96v9U7BLgKzISIvZhHyyPmOrz-yDsHWUHQPfnH03eeJ5ciZPme-Y9EfEP3bqQn3mkcgZciAm1p9YrHaAe49rWe5XnXambuh4G9GqMf_BUCMyAYFigmotm3hFb9YglVwaDxhh71026hNRoPLO9alDCQBE0sBg0zPF0WmC2O7KvoUZiVagZ-rM5ZJnglGRuHLifs9O7fyXmILsITFHyZ28yDW7sZenKtf_zPWTUw00McNE2UWJKgjYNkNCvpENW71imdEzXkBMnNSEUJvRcsoNWrpgjt_SeLTkhPMtjPaVhkajbD2GDOaGglfYDFYk1sPrnJbc8rWrlKICLGJf8Cd8pnLkhxJAoaCSCqLGngj8r27lmL1n_lgzfpJYSW2i0edFRxgXBLoX7DpPuf5zT-n_w3Jh172ljomgSilKWsPgx6R9wXE8RPEcoI7JHeXwQVCHxhtc_UQoE7PNJXTtIOKVghsRUmtGUQbsl6jMO_Gwq2E605wRggqXZvAMUqGB2qPv6jq8W_sTBSPkqR0OspnDCZ4SkmnLc0i8tWVV_FWwJNTSWGWXSKQ3wkYHlvRgijiAAgbVp4oyMWjLjUzU3J567UlcRcTY-AcyNKYaSWMgyb8cY7pG2KJnK2BQ9H84Xg=w216-h233-no"
+                <img src="https://lh3.googleusercontent.com/-STvgAZQ_iawogrzcncwhWnAvKxwxMQog4azZtdZYtEJ5EfH6f_1_InU_CBap5iQyEQVlIBdDfqg0bUIpdNCsyLq8IsKpVoM0oqU7xE8DRoxVr8UoVaVIvRHBA-t14a-UoKrGo6LCQkcmUrBIdbHOmkVirMSKYaDHTN2R5QnneGwCA1F7cPZ6Gj-Yr27SzAygclIGqAHChhOTFhJhN7NqhJkxFtGeGX0wJH34g5-uQTtkLcXxVfj7sXqQihkPfAv9lBYXDWatEQylBPxrZV5pBLq3CM6e4kXvb5imTTeow-Nz8TWhhuFl9Y1183Lx1zmwwa3NJ_MY_49iEkhg7vZ75rz_V2idcfduHzDKm4OkyzwX9KFvrM5NAk1msBhh5a0Ey3gXZ-mMCw931_kQh8j_Pt6qXLz_Pdn0ypTtPxc3gadatkBBc4IGpvq4fx2bKQmGWuDx9LsM0PGgbgu3gwFVisOLQwGAu4wItnFtswOSPOu4REgSwrSryUFgmJVvW6u1DoSc5os6pRWK3_rfKXKaSeIvszjEvtlXIdlUIRykgOeS9nPMCbl6JhTMlTd5Oqsqq8DucXP65XyuCinopSStdBEre8Mj-iMEDav1IkPep4R1ou58fONUucQailKVl9lk6xcu3E4nlL2TaCG5KvQHmosP_J6PjefpjDfWRWrwnyH4iE18SQcXtNH5a4XWw=w904-h928-no"
                 height="400px" width="400px" style="padding: 15px;">
             </div>
-            <div class="col-lg-6 text-center">
-                <h3>Marcus Tran</h3>
-                <p>Hi! I'm Marcus and I'm currently a sophomore at Virginia Tech for Computer Science!  I sorta did most of the frontend (website-building) for our project
-                    utilizing Bootstrap and some Javascript for animations and fade ins.  I'm currently interested in Machine Learning and Data Science, but also am interested in developing
-                    GUIs, web design and development!
+            <div class="col-md-4 text-center mr-auto">
+                <blockquote class="blockquote">
+                <p> 
+                    Hey there! I'm Marcus and I'm currently a sophomore at Virginia Tech for Computer Science!  I sorta did most of the frontend (website-building) for our project
+                    utilizing Bootstrap and some Javascript for animations and fade ins.  I'm currently interested in Machine Learning, Data Science, and Mobile Development but also am interested in developing
+                    GUIs, web design and development!  I started coding in high school, mostly in messing around and creating websites in my spare time with HTML/CSS and Bootstrap.  Coming into college
+                    I've learned the fundamentals of OOP and Data Structures, and I'm always willing to learn anything new in Computer Science!
                 </p>
+                <footer class="blockquote-footer text h1"> Marcus Tran, <cite title="year and major">VT Computer Science 2022</cite></footer>
+                </blockquote>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
-
+            <div class="col-lg-6 text-center">
+                <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t31.0-8/p960x960/11012677_1592509864328201_6570654879201525546_o.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=SdyJpfxs5zsAX8FpTSt&_nc_ht=scontent-iad3-1.xx&_nc_tp=6&oh=592ce7e9b433a730a32c7ecc3f3c690b&oe=5EA4955E"
+                height="400px" width="400px" style="padding: 15px;">
+            </div>
+            <div class="col-md-4 text-center mr-auto">
+                <blockquote class="blockquote">
+                <p> This is Roi and everything great about him!
+                </p>
+                <footer class="blockquote-footer text h1"> Roi Hermann, <cite title="year and major">VT Computer Science 2022</cite></footer>
+                </blockquote>
             </div>
         </div>
     </main>
