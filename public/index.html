@@ -11,7 +11,7 @@
 
 <body onpageshow="getUser();">
     <header>
-        <div class="navbar">
+        <div class="navbar fixed-top mx-5">
         <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
         <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
         <a href="/createRoom" class="navbar-text p-2 mx-1 text-white">Create Room </a>
@@ -29,7 +29,7 @@
     <main role="main">
         <div class="jumbotron" style="background-image: url(https://i.pinimg.com/originals/6b/05/fc/6b05fcca79acf3db8ea23562f33f96b4.jpg)">
             <div class="container">
-                <h1 class="display-2" style="padding: 25px; color: white;"> Welcome to SchoolShare!</h1>
+                <h1 class="display-2" style="padding: 50px; color: white;"> Welcome to SchoolShare!</h1>
                 <p style="padding: 10px; color: white;">SchoolShare is a website alternative for online lecture calls, completely contained within your browser.
                       Perfect for those with limited hardware, or are looking for an easier way to host video calls, lectures, or even study groups.  The project was designed and made during the 2020 HooHacks Hackathon, sponsored by MLH.</p>
                 <p><a class="btn btn-primary btn-lg" href="/about" role="button"> Learn More About Us!</a></p>
@@ -43,13 +43,13 @@
                 <div class="col-md-4">
                     <h2 style="padding: 15px" class="font-weight-bold">Goals</h2>
                     <p>Our goal for this project by the end of the Hackathon and continuing with it beyond it, is to develop an easier, less clunky way of hosting video calls or video lectures in comparison to the current systems and applications we have.
-                          A reincarnation of Rabb.it, for educational purposes.
+                          A reincarnation of Rabb.it, for educational purposes.  Also we wanted to try and create this alternative as a learning experience for our group to expand our skillset into web development
                     </p>
                 </div>
                 <div class="col-md-4">
                     <h2 style="padding: 15px" class="font-weight-bold">Implementation</h2>
-                    <p>Our project was implemented using MySQL, Node.js and general Javascript for our backend for databasing, webcam and video functionality
-                        . Where we utilized Bootstrap with HTML+CSS for the entirety of the site development and frontend.</p>
+                    <p>Our project was implemented using MySQL, Node.js, Javascript, and various online APIs for our backend for databasing, webcam and video functionality
+                        . Where we utilized Bootstrap with HTML+CSS sprinkled in with some Javascript for the entirety of the site development and frontend.</p>
                 </div>
                 <div class="col-md-4">
                     <h2 style="padding: 15px" class="font-weight-bold">Background</h2>
@@ -61,6 +61,15 @@
                 </div>
             </div>
         </div>
+
+        <footer class="container border-top border-white mt-5">
+            <div class="row">
+                <p class="pt-3 mr-auto">SchoolShare Application</p>
+                <p class="pt-3 mx-5 mr-auto"> By Marcus, Ryan, Matt, Roi</p>
+                 <p class="pt-3  ">HooHacks 2020</p>
+            </div>
+            
+        </footer>
     </main>
 </body>
 </html>
