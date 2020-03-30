@@ -28,27 +28,28 @@
                         //    alert("Please enter a valid embedable url");
                         //}
                         //else {
-                            var p = document.createElement("p");
-                            vid.appendChild(document.createElement("br"));
-                            p.appendChild(vid);
-                            p.appendChild(document.createElement("br"));
-                            var h = document.createElement("text");
-                            var t = document.createTextNode(data.uName + ": " + y);
-                            h.appendChild(t);
-                            h.append(document.createElement("br"));
-                            h.append(document.createElement("br"));
-                            p.appendChild(h);
-                            var body = document.getElementsByTagName("p")[0];
-                            body.prepend(p);
-                            document.getElementById("link").value = "";
-                            document.getElementById("title").value = "";
-                            }
-                        }
-                    })
+                        var p = document.createElement("p");
+                        vid.appendChild(document.createElement("br"));
+                        p.appendChild(vid);
+                        p.appendChild(document.createElement("br"));
+                        var h = document.createElement("text");
+                        var t = document.createTextNode(data.uName + ": " + y);
+                        h.appendChild(t);
+                        h.append(document.createElement("br"));
+                        h.append(document.createElement("br"));
+                        p.appendChild(h);
+                        var body = document.getElementsByTagName("p")[0];
+                        body.prepend(p);
+                        document.getElementById("link").value = "";
+                        document.getElementById("title").value = "";
+                    
+                        
+                    });
                 }
             })
             
         }
+
         function isURL(str) {
             var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
                 '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
