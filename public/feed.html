@@ -9,7 +9,7 @@
     <script src="../scripts/script.js"></script>
     
 </head>
-<body onpageshow="settingsInputUserInfo();" onload="addText();">
+<body onpageshow="settingsInputUserInfo();">
     <div class="navbar">
         <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
         <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
@@ -34,43 +34,41 @@
                     var y = document.getElementById("title").value;
                     var vid = document.createElement('iframe');
                     vid.width = "420px";
-                                vid.height = "345px";
-                                vid.id = data.uName;
-                                vid.setAttribute("src", x);
-                                vid.setAttribute('title', y);
-                                let bool = isURL(x);
-                                if (!bool) {
-                                    alert("Please enter a valid embedable url");
-                                }
-                                else {
-                                    var p = document.createElement("p");
-                                    vid.appendChild(document.createElement("br"));
-                                    p.appendChild(vid);
-                                    p.appendChild(document.createElement("br"));
-                                    var h = document.createElement("text");
-                                    var t = document.createTextNode(data.uName + ": " + y);
-                                    h.appendChild(t);
-                                    h.append(document.createElement("br"));
-                                    h.append(document.createElement("br"));
-                                    p.appendChild(h);
-                                    var body = document.getElementsByTagName("p")[0];
-                                    body.prepend(p);
-                                    document.getElementById("link").value = "";
-                                    document.getElementById("title").value = "";
-                                }
-                            }
-                            </script>
-            <script>
-                        function isURL(str) {
-                            var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-                                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
-                                '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-                                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-                                '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-                                '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-                            return pattern.test(str);
+                    vid.height = "345px";
+                    vid.id = data.uName;
+                    vid.setAttribute("src", x);
+                    vid.setAttribute('title', y);
+                    let bool = isURL(x);
+                    if (!bool) {
+                        alert("Please enter a valid embedable url");
                         }
-                    </script>
+                    else {
+                         var p = document.createElement("p");
+                         vid.appendChild(document.createElement("br"));
+                         p.appendChild(vid);
+                         p.appendChild(document.createElement("br"));
+                         var h = document.createElement("text");
+                         var t = document.createTextNode(data.uName + ": " + y);
+                         h.appendChild(t);
+                         h.append(document.createElement("br"));
+                         h.append(document.createElement("br"));
+                         p.appendChild(h);
+                         var body = document.getElementsByTagName("p")[0];
+                         body.prepend(p);
+                         document.getElementById("link").value = "";
+                         document.getElementById("title").value = "";
+                         }
+                    }
+                function isURL(str) {
+                    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+                    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+                    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                    '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+                    return pattern.test(str);
+                }
+            </script>
     
             <!-- the videos uploaded or whetever -->
             <!-- would be the vidos from wherver they are stored, maybe by chronilogical order? -->
