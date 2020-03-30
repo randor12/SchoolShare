@@ -10,28 +10,33 @@
     <script src="../scripts/script.js"></script>
 </head>
 
-<body onpageshow="getAlert();" style="background-image:url(https://images.wallpaperscraft.com/image/night_city_city_lights_metropolis_126569_2560x1080.jpg);"
->
+<body onpageshow="getAlert();"
+    style="background-image:url(https://images.wallpaperscraft.com/image/night_city_city_lights_metropolis_126569_2560x1080.jpg);">
 
 
     <div class="main" style="padding-top:220px;">
-        <div class="container text-center border border-white rounded"
-        style="backdrop-filter: blur(9px);">
-        <h2 style="font-weight: bold; color:dodgerblue; padding-top: 70px; padding-bottom: 100px;">Sign Up Page</h2>
-        <div class="container text-center">
-            <form class="container text-center" method="POST" action="signup">
-                <div class="row text-center">
-                    <input class="form-control-sm" type="text" id="email" name="email" placeholder="Email" onchange="exists();" required>
+        <div class="container text-center border border-white rounded" style="backdrop-filter: blur(9px);">
+            <h2 style="font-weight: bold; color:dodgerblue; padding-top: 70px; padding-bottom: 20px;">Sign Up Page</h2>
+
+            <form class="form-signin text-center" method="POST" action="signup">
+                <div class="text-center" style="padding: 25px;">
+                    <input class="form-control-sm" type="text" id="email" name="email" placeholder="Email"
+                        onchange="exists();" required>
 
                 </div>
-                <div class="row text-center">
-                    <input class="form-control-sm" type="text" id="username" name="username" placeholder="Username" required>
+                <div class="text-center" style="padding: 25px;">
+                    <input class="form-control-sm" type="text" id="username" name="username" placeholder="Username"
+                        required>
                 </div>
-                <div class="row text-center">
-                    <input class="form-control-sm" type="password" id="password" name="password" placeholder="Password" required>
-                    
+                <div class="text-center" style="padding: 25px; padding-bottom: 100px;">
+                    <input class="form-control-sm" type="password" id="password" name="password" placeholder="Password"
+                        required>
+
                 </div>
-                <button type="submit">Sign Up</button>
+                <div class="text-center" style="padding-bottom: 55px;">
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                </div>
+
             </form>
         </div>
 
