@@ -7,6 +7,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
+    <script>
+        function addURL() {
+            var x = document.getElementById("link").value;
+            var y = document.getElementById("title").value;
+            var vid = document.createElement('iframe');
+            vid.width = "420px";
+            vid.height = "345px";
+            vid.id = getUsername();
+            vid.setAttribute("src", x);
+            vid.setAttribute('title', y);
+            let bool = isURL(x);
+            if (!bool) {
+                alert("Please enter a valid embedable url");
+            }
+            else {
+                var p = document.createElement("p");
+                vid.appendChild(document.createElement("br"));
+                p.appendChild(vid);
+                p.appendChild(document.createElement("br"));
+                var h = document.createElement("text");
+                var t = document.createTextNode(getUsername() + ": " + y);
+                h.appendChild(t);
+                h.append(document.createElement("br"));
+                h.append(document.createElement("br"));
+                p.appendChild(h);
+                var body = document.getElementById("body");
+                body.insertBefore(p, body.firstChild);
+                document.getElementById("link").value = "";
+                document.getElementById("title").value = "";
+            }
+        }
+        function isURL(str) {
+            var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+                '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+            return pattern.test(str);
+        }
+    </script>
+    <script>
+        var d = document.getElementsByTagName("iframe");
+        var x = document.getElementsByTagName("text");
+        for (var i = 0; i < d.length; i++)
+            x[i].innerHTML = d[i].id + ": " + d[i].title;
+    </script>
 </head>
 <body onpageshow="settingsInputUserInfo();">
     <div class="navbar">
@@ -27,50 +74,6 @@
             URL to embed: <input type="text" id="link" value=""><br><br>
             Description for Video: <input type="text" id="title" value=""><br><br>
             <button onclick="addURL()">Embed Video</button>
-        
-       <script>
-       function addURL(){
-            var x = document.getElementById("link").value;
-            var y = document.getElementById("title").value;
-            var vid = document.createElement('iframe');
-            vid.width="420px";
-            vid.height="345px";
-            vid.id=getUsername();
-            vid.setAttribute("src", x);
-            vid.setAttribute('title', y);
-            let bool = isURL(x);
-            if(!bool){
-                alert("Please enter a valid embedable url");
-            }
-            else{
-                var p = document.createElement("p");
-                vid.appendChild(document.createElement("br"));
-                p.appendChild(vid);
-                p.appendChild(document.createElement("br"));
-                var h = document.createElement("text");
-                var t = document.createTextNode(getUsername() + ": " + y);
-                h.appendChild(t);
-                h.append(document.createElement("br"));
-                h.append(document.createElement("br"));
-                p.appendChild(h);
-                var body = document.getElementById("body");
-                body.insertBefore(p,body.firstChild);
-                document.getElementById("link").value = "";
-            	document.getElementById("title").value = "";
-                }
-        }
-        function isURL(str) {
-            var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
-            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-        return pattern.test(str);
-        }
-        </script>
-    </div>
-    <div id="body">
 
             <!-- the videos uploaded or whetever -->
             <!-- would be the vidos from wherver they are stored, maybe by chronilogical order? -->
@@ -91,11 +94,6 @@
         </iframe><br>
             <text></text><br><br></p>
     </div>
-     <script>
-            var d = document.getElementsByTagName("iframe");
-            var x = document.getElementsByTagName("text");
-            for (var i = 0; i < d.length; i++)
-                x[i].innerHTML = d[i].id + ": " + d[i].title;
-    </script>
+     
 </body>
 </html>
