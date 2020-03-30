@@ -147,6 +147,11 @@ app.get('/about', function(req, res, next) {
     
 })
 
+app.post('/connect', function (req,res, next) {
+
+    res.redirect('/createRoom#' + req.body.connect);
+})
+
 app.get('/contact', function (req, res, next) {
     if (req.session.loggedin) {
         console.log('Logged in');
