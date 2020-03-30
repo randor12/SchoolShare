@@ -49,13 +49,15 @@
         }
     </script>
     <script>
+    function addText(){
         var d = document.getElementsByTagName("iframe");
         var x = document.getElementsByTagName("text");
         for (var i = 0; i < d.length; i++)
             x[i].innerHTML = d[i].id + ": " + d[i].title;
+            }
     </script>
 </head>
-<body onpageshow="settingsInputUserInfo();">
+<body onpageshow="settingsInputUserInfo();" onload="addText();">
     <div class="navbar">
         <a class="navbar-brand text-primary font-weight-bold" href="/">SchoolShare</a>
         <a href="/feed" class="navbar-text p-2 mx-1 text-white">Feed</a>
@@ -94,6 +96,5 @@
         </iframe><br>
             <text></text><br><br></p>
     </div>
-     
 </body>
 </html>
