@@ -35,7 +35,7 @@
             var vid = document.createElement('iframe');
             vid.width="345px";
             vid.height="420px";
-            vid.id=(class="uname");
+            vid.id=getUsername();
             vid.setAttribute("src", x);
             vid.setAttribute('title', y);
             let bool = isURL(x);
@@ -45,9 +45,13 @@
             else{
                 var p = document.createElement("p");
                 p.appendChild(vid);
+                var br = document.createElement("br");
+                p.appendChild(br);
                 var h = document.createElement("text");
-                var t = document.createTextNode(class="uName" + ": " + y);
+                var t = document.createTextNode(getUsername() + ": " + y);
                 h.appendChild(t);
+                h.appendChild(br);
+                h.appendChild(br);
                 p.appendChild(h);
                 var body = document.getElementById("body");
                 body.insertBefore(p,body.firstChild);
