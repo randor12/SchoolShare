@@ -5,6 +5,7 @@ Make an application that allows for screen sharing, live communication, and file
 - Ryan Nicholas, Computer Science Major at Virginia Tech
 - Matt Gonley, Computer Science Major at Virginia Tech
 - Marcus Tran, Computer Science Major at Virginia Tech
+- Roi Pascual, Computer Science Major at Virginia Tech
 
 ## Contact
 - Phone: (203) 400-9614
