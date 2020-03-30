@@ -35,7 +35,7 @@
             var vid = document.createElement('iframe');
             vid.width="345px";
             vid.height="420px";
-            vid.id="uName";
+            vid.id=(class="uname");
             vid.setAttribute("src", x);
             vid.setAttribute('title', y);
             let bool = isURL(x);
@@ -45,6 +45,10 @@
             else{
                 var p = document.createElement("p");
                 p.appendChild(vid);
+                var h = document.createElement("text");
+                var t = document.createTextNode(class="uName" + ": " + y);
+                h.appendChild(t);
+                p.appendChild(h);
                 var body = document.getElementById("body");
                 body.insertBefore(p,body.firstChild);
                 }
