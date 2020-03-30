@@ -147,8 +147,14 @@ app.get('/about', function(req, res, next) {
     
 })
 
-app.post('/connect', function (req,res, next) {
+var roomNumber = {room: null};
 
+app.get('/roomNumber', function(req, res, next) {
+    res.json(roomNumber);
+})
+
+app.post('/connect', function (req,res, next) {
+    roomNumber.room = req.body.connect;
     res.redirect('/createRoom#' + req.body.connect);
 })
 

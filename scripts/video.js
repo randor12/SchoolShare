@@ -2,14 +2,34 @@
  * Initialize Room ID
  */
 function getRoomID() {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    // Creates 10 character random ROOM ID number 
-    for (var i = 0; i < 10; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    $('#room-id').html('Room ID: ' + result);
+    $.ajax({
+        dataType: "json",
+        url: "/roomNumber",
+        success:
+        function(data) {
+            console.log('Success');
+            $.each(data, function(val) {
+                var validRoom = data.room;
+                console.log('Join Room: ' + validRoom);
+                // Check for connection or creation 
+                if (validRoom == null || validRoom == undefined) {
+                    var result = '';
+                    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                    var charactersLength = characters.length;
+                    // Creates 10 character random ROOM ID number 
+                    for (var i = 0; i < 10; i++) {
+                        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                    }
+                    $('#room-id').html('Room ID: ' + result);
+                }
+                else {
+                    $('#room-id').html('Room ID: ' + validRoom);
+                    data.room = null;
+                }
+            })
+        }
+    })
+    
 
     getDevices();
     getVideo();
@@ -61,7 +81,7 @@ function getVideo() {
         }
     }
 
-    navigator.mediaDevices.getUserMedia({ audio: true, video: {width: 1920, height: 1080, frameRate: 60, facingMode: 'user'} })
+    navigator.mediaDevices.getUserMedia({ audio: false, video: {width: 1920, height: 1080, frameRate: 60, facingMode: 'user'} })
         .then(function (stream) {
             var video = document.querySelector('video');
             // Older browsers may not have srcObject
