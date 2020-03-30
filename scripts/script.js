@@ -83,6 +83,21 @@ function settingsInputUserInfo() {
     });
 }
 
+function getUsername() {
+    $.ajax({
+        dataType: "json",
+        url: "/user",
+        success:
+        function(data) {
+            console.log('Success');
+            $.each(data, function() {
+                users = data.uName;
+                return users;
+            })
+        }
+    })
+}
+
 function getAlert() {
     $.ajax({
         dataType: "json",
