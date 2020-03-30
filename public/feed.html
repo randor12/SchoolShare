@@ -23,11 +23,11 @@
                         vid.id = data.uName;
                         vid.setAttribute("src", x);
                         vid.setAttribute('title', y);
-                        let bool = isURL(x);
-                        if (!bool) {
-                            alert("Please enter a valid embedable url");
-                        }
-                        else {
+                        //let bool = isURL(x);
+                        //if (!bool) {
+                        //    alert("Please enter a valid embedable url");
+                        //}
+                        //else {
                             var p = document.createElement("p");
                             vid.appendChild(document.createElement("br"));
                             p.appendChild(vid);
@@ -42,7 +42,7 @@
                             body.prepend(p);
                             document.getElementById("link").value = "";
                             document.getElementById("title").value = "";
-                        }
+                        //}
                     })
                 }
             })
