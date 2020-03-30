@@ -9,19 +9,11 @@ var path = require('path');
 var crypto = require('bcryptjs');
 // Communicate with the MySQL
 const mysql = require('mysql')
-var http = require('http').Server(app);   
 var AccessToken = require('twilio').jwt.AccessToken;
 var VideoGrant = AccessToken.VideoGrant;
 var faker = require('faker');
-
-
-var io = require('socket.io')(http);
-
-io.on('connection', () => {
-    console.log('user connected');
-});
-
-var socket = io.connect;
+var fs = require('fs');
+var https = require('https');
 
 // socket.on('initiate', () => {
 //     io.emit('initiate');
@@ -88,10 +80,24 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //start the server
-app.listen(port, function () {
-    console.log(`Example app listening on port ${port}!!`)
-    
-})
+var serverType = process.env.NODE_ENV || auth.devType || 'DEV';
+
+if (serverType == 'PROD')
+{
+    https.createServer({
+        key: fs.readFileSync('server.key'),
+        cert: fs.readFileSync('server.cert')
+    }, app).listen(port, function () {
+        console.log(`Example app listening on port ${port}!!`)
+        console.log('Server Type: ' + serverType)
+    })
+}
+else {
+    app.listen(port, function() {
+        console.log(`Example app listening on port ${port}!!`);
+        console.log('Server Type: ' + serverType)
+    })
+}
 
 
 
@@ -139,6 +145,11 @@ app.get('/about', function(req, res, next) {
         res.redirect('/login');
     }
     
+})
+
+app.post('/connect', function (req,res, next) {
+
+    res.redirect('/createRoom#' + req.body.connect);
 })
 
 app.get('/contact', function (req, res, next) {

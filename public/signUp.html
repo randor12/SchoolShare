@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,34 @@
     <link rel="stylesheet" href="../styles/bootstrap.css">
     <script src="../scripts/script.js"></script>
 </head>
-<body onpageshow="getAlert();">
-    
-    
-    <div class="main">
-        <h2>Sign Up Page</h2>
-        <div class="container">
-            <form method="POST" action="signup">
-                <div class="row">
-                    <input type="text" id="email" name="email" placeholder="Email" onchange="exists();" required>
-                    <input type="text" id="username" name="username" placeholder="Username" required>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                    <button type="submit">Sign Up</button>
+
+<body onpageshow="getAlert();"
+    style="background-image:url(https://images.wallpaperscraft.com/image/night_city_city_lights_metropolis_126569_2560x1080.jpg);">
+
+
+    <div class="main" style="padding-top:220px;">
+        <div class="container text-center border border-white rounded" style="backdrop-filter: blur(9px);">
+            <h2 style="font-weight: bold; color:dodgerblue; padding-top: 70px; padding-bottom: 20px;">Sign Up Page</h2>
+
+            <form class="form-signin text-center" method="POST" action="signup">
+                <div class="text-center" style="padding: 25px;">
+                    <input class="form-control-sm" type="text" id="email" name="email" placeholder="Email"
+                        onchange="exists();" required>
+
                 </div>
+                <div class="text-center" style="padding: 25px;">
+                    <input class="form-control-sm" type="text" id="username" name="username" placeholder="Username"
+                        required>
+                </div>
+                <div class="text-center" style="padding: 25px; padding-bottom: 100px;">
+                    <input class="form-control-sm" type="password" id="password" name="password" placeholder="Password"
+                        required>
+
+                </div>
+                <div class="text-center" style="padding-bottom: 55px;">
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                </div>
+
             </form>
         </div>
 
@@ -40,7 +56,8 @@
                 </div>
             </div>
         </div>
-
+    </div>
     </div>
 </body>
+
 </html>

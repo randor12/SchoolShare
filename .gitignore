@@ -12,6 +12,10 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 # Authorization Passwords
 auth.json
 
+#server certificates and key
+server.cert
+server.key
+
 # Runtime data
 pids
 *.pid
