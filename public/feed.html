@@ -38,8 +38,8 @@
                             h.append(document.createElement("br"));
                             h.append(document.createElement("br"));
                             p.appendChild(h);
-                            var body = document.getElementById("body");
-                            body.insertBefore(p, body.firstChild);
+                            var body = document.getElementsTagName("p")[0];
+                            body.prepend(p, body.firstChild);
                             document.getElementById("link").value = "";
                             document.getElementById("title").value = "";
                         }
