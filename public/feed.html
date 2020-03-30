@@ -9,34 +9,44 @@
     <script src="../scripts/script.js"></script>
     <script>
         function addURL() {
-            var x = document.getElementById("link").value;
-            var y = document.getElementById("title").value;
-            var vid = document.createElement('iframe');
-            vid.width = "420px";
-            vid.height = "345px";
-            vid.id = getUsername();
-            vid.setAttribute("src", x);
-            vid.setAttribute('title', y);
-            let bool = isURL(x);
-            if (!bool) {
-                alert("Please enter a valid embedable url");
-            }
-            else {
-                var p = document.createElement("p");
-                vid.appendChild(document.createElement("br"));
-                p.appendChild(vid);
-                p.appendChild(document.createElement("br"));
-                var h = document.createElement("text");
-                var t = document.createTextNode(getUsername() + ": " + y);
-                h.appendChild(t);
-                h.append(document.createElement("br"));
-                h.append(document.createElement("br"));
-                p.appendChild(h);
-                var body = document.getElementById("body");
-                body.insertBefore(p, body.firstChild);
-                document.getElementById("link").value = "";
-                document.getElementById("title").value = "";
-            }
+            $.ajax({
+                dataType: "json",
+                url: "/user",
+                success:
+                function(data) {
+                    $.each(data, function(value) {
+                        var x = document.getElementById("link").value;
+                        var y = document.getElementById("title").value;
+                        var vid = document.createElement('iframe');
+                        vid.width = "420px";
+                        vid.height = "345px";
+                        vid.id = data.uName;
+                        vid.setAttribute("src", x);
+                        vid.setAttribute('title', y);
+                        let bool = isURL(x);
+                        if (!bool) {
+                            alert("Please enter a valid embedable url");
+                        }
+                        else {
+                            var p = document.createElement("p");
+                            vid.appendChild(document.createElement("br"));
+                            p.appendChild(vid);
+                            p.appendChild(document.createElement("br"));
+                            var h = document.createElement("text");
+                            var t = document.createTextNode(data.uName + ": " + y);
+                            h.appendChild(t);
+                            h.append(document.createElement("br"));
+                            h.append(document.createElement("br"));
+                            p.appendChild(h);
+                            var body = document.getElementById("body");
+                            body.insertBefore(p, body.firstChild);
+                            document.getElementById("link").value = "";
+                            document.getElementById("title").value = "";
+                        }
+                    })
+                }
+            })
+            
         }
         function isURL(str) {
             var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
