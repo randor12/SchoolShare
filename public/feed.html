@@ -33,8 +33,8 @@
             var x = document.getElementById("link").value;
             var y = document.getElementById("title").value;
             var vid = document.createElement('iframe');
-            vid.width="345px";
-            vid.height="420px";
+            vid.width="420px";
+            vid.height="345px";
             vid.id=getUsername();
             vid.setAttribute("src", x);
             vid.setAttribute('title', y);
@@ -44,14 +44,14 @@
             }
             else{
                 var p = document.createElement("p");
+                vid.appendChild(document.createElement("br"));
                 p.appendChild(vid);
-                var br = document.createElement("br");
-                p.appendChild(br);
+                p.appendChild(document.createElement("br"));
                 var h = document.createElement("text");
                 var t = document.createTextNode(getUsername() + ": " + y);
                 h.appendChild(t);
-                h.appendChild(br);
-                h.appendChild(br);
+                h.append(document.createElement("br"));
+                h.append(document.createElement("br"));
                 p.appendChild(h);
                 var body = document.getElementById("body");
                 body.insertBefore(p,body.firstChild);
